@@ -33,7 +33,7 @@ export function Header() {
             <div className="p-2 rounded-lg bg-gradient-to-br from-purple-600 to-cyan-600">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="text-white">Inteligo</span>
+            <span className="text-white">Inteliglo</span>
           </div>
 
           {/* Desktop Navigation */}

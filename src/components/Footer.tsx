@@ -12,7 +12,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="mb-4 text-white">
-              Inteligo
+              Inteliglo
             </h3>
             <p className="text-white mb-4">
               AI-powered digital marketing solutions for Future businesses.
@@ -107,7 +107,7 @@ export function Footer() {
           }}
         >
           <p className="text-white text-sm">
-            © 2025 Inteligo. All rights reserved.
+            © 2025 Inteliglo. All rights reserved.
           </p>
           {/* <div className="flex gap-6 text-sm">
             <a href="#" className="text-white hover:text-purple-400 transition-colors">Privacy Policy</a>

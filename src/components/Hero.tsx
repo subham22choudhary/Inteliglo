@@ -67,7 +67,7 @@ export function Hero() {
             transition={{ delay: 0.4 }}
             className="mx-auto max-w-2xl text-white mb-10"
           >
-            Professional digital marketing services powered by Inteligo. From website development to strategic marketing campaigns, we deliver measurable results.
+            Professional digital marketing services powered by Inteliglo. From website development to strategic marketing campaigns, we deliver measurable results.
           </motion.p>
 
           {/* <motion.div
