@@ -67,10 +67,10 @@ export function Hero() {
             transition={{ delay: 0.4 }}
             className="mx-auto max-w-2xl text-white mb-10"
           >
-            Professional digital marketing services powered by AI. From website development to strategic marketing campaigns, we deliver measurable results.
+            Professional digital marketing services powered by Inteligo. From website development to strategic marketing campaigns, we deliver measurable results.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -87,7 +87,7 @@ export function Hero() {
                 View Our Work
               </Button>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Stats */}
           <motion.div
@@ -97,7 +97,7 @@ export function Hero() {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
           >
             {[
-              { value: "500+", label: "Projects Completed" },
+              { value: "100%", label: "Smart Integration" },
               { value: "98%", label: "Client Satisfaction" },
               { value: "50+", label: "Team Experts" },
               { value: "24/7", label: "Support Available" },

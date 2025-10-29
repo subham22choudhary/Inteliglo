@@ -32,9 +32,9 @@ export function CTASection() {
 
             {/* Background decoration */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e520_1px,transparent_1px),linear-gradient(to_bottom,#4f46e520_1px,transparent_1px)] bg-[size:2rem_2rem]" />
-            
+
             <div className="relative z-10 text-center">
-              <motion.div 
+              <motion.div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-transparent bg-black backdrop-blur-sm mb-6"
                 whileHover={{ scale: 1.05 }}
                 style={{
@@ -60,9 +60,9 @@ export function CTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
                   className="bg-black border-2 border-purple-500/30 text-white placeholder:text-gray-400 focus:border-purple-500"
                 />
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

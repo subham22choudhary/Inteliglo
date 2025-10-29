@@ -1,15 +1,15 @@
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { 
-  Globe, 
-  Share2, 
-  Search, 
-  DollarSign, 
-  Palette, 
-  Mail, 
-  FileText, 
-  BarChart3, 
-  Bot, 
+import {
+  Globe,
+  Share2,
+  Search,
+  DollarSign,
+  Palette,
+  Mail,
+  FileText,
+  BarChart3,
+  Bot,
   Star,
   ShoppingCart,
   Video,
@@ -250,14 +250,14 @@ export function Services() {
       </div>
 
       <div className="max-w-7xl mx-auto relative">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black/50 backdrop-blur-sm border-2 border-transparent relative mb-6"
             whileHover={{ scale: 1.05 }}
             style={{
@@ -283,7 +283,7 @@ export function Services() {
         </motion.div>
 
         {/* All Services in Grid Sections */}
-        <div className="grid gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {serviceCategories.map((category, categoryIndex) => {
             const Icon = category.icon;
             return (
@@ -294,7 +294,7 @@ export function Services() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: categoryIndex * 0.03 }}
               >
-                <Card className="bg-black backdrop-blur-sm border-2 border-transparent p-0 overflow-hidden relative group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
+                <Card className="h-full bg-black backdrop-blur-sm border-2 border-transparent p-0 overflow-hidden relative group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
                   style={{
                     backgroundImage: 'linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4, #a855f7)',
                     backgroundOrigin: 'border-box',
@@ -302,56 +302,22 @@ export function Services() {
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   <div className="relative">
                     {/* Image Section - Full Width on Mobile, Side by Side on Desktop */}
-                    <div className="grid lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                       {/* Image */}
-                      <div className="lg:col-span-1">
-                        <div className="relative h-64 lg:h-full min-h-[300px] overflow-hidden border-2 border-transparent"
-                          style={{
-                            backgroundImage: 'linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)',
-                            backgroundOrigin: 'border-box',
-                            backgroundClip: 'padding-box, border-box'
-                          }}
-                        >
-                          <ImageWithFallback
-                            src={category.image}
-                            alt={category.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
-                          {/* Overlay with Stats */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent p-6 flex flex-col justify-end">
-                            <motion.div 
-                              className="flex gap-3"
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.2 }}
-                            >
-                              {Object.entries(category.stats).map(([key, value], idx) => (
-                                <motion.div 
-                                  key={idx} 
-                                  className="px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-sm border border-purple-500/30"
-                                  whileHover={{ scale: 1.05, borderColor: "rgba(168, 85, 247, 0.6)" }}
-                                >
-                                  <div className="flex items-center gap-1.5">
-                                    <TrendingUp className="w-3.5 h-3.5 text-purple-400" />
-                                    <span className="text-xs text-white">{key}: <span className="text-purple-300">{value}</span></span>
-                                  </div>
-                                </motion.div>
-                              ))}
-                            </motion.div>
-                          </div>
-                        </div>
-                      </div>
+
+
+
+
 
                       {/* Content */}
-                      <div className="lg:col-span-2 p-6 lg:p-8">
+                      <div className="md:col-span-6 p-6 lg:p-8">
                         {/* Header */}
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <motion.div 
+                            <motion.div
                               className="p-3 rounded-lg bg-gradient-to-br from-purple-600/30 to-cyan-600/30 border-2 border-transparent backdrop-blur-sm"
                               whileHover={{ rotate: 360, scale: 1.1 }}
                               transition={{ duration: 0.5 }}
@@ -389,7 +355,7 @@ export function Services() {
                           </div>
                           <ul className="grid md:grid-cols-2 gap-3">
                             {category.services.map((service, serviceIndex) => (
-                              <li 
+                              <li
                                 key={serviceIndex}
                                 className="flex items-start gap-3 text-white group/item"
                               >

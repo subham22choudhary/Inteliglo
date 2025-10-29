@@ -1,11 +1,11 @@
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { 
-  Check, 
-  Sparkles, 
-  Rocket, 
-  Briefcase, 
+import {
+  Check,
+  Sparkles,
+  Rocket,
+  Briefcase,
   Brain,
   Calendar,
   Globe,
@@ -145,14 +145,14 @@ export function Plans() {
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black backdrop-blur-sm border-2 border-transparent relative mb-6"
             whileHover={{ scale: 1.05 }}
             style={{
@@ -198,11 +198,10 @@ export function Plans() {
                     </Badge>
                   </div>
                 )}
-                
-                <Card 
-                  className={`h-full bg-black backdrop-blur-sm border-2 border-transparent p-6 hover:shadow-2xl transition-all duration-500 ${
-                    plan.popular ? 'scale-105 lg:scale-110' : 'hover:scale-105'
-                  }`}
+
+                <Card
+                  className={`h-full bg-black backdrop-blur-sm border-2 border-transparent p-6 hover:shadow-2xl transition-all duration-500 ${plan.popular ? 'scale-105 lg:scale-110' : 'hover:scale-105'
+                    }`}
                   style={{
                     backgroundImage: `linear-gradient(#000, #000), linear-gradient(135deg, ${plan.borderColor.replace('from-', '#').replace(' to-', ', #')})`,
                     backgroundOrigin: 'border-box',
@@ -216,7 +215,7 @@ export function Plans() {
                     </div>
                     <h3 className="text-white mb-2">{plan.name}</h3>
                     <p className="text-white text-sm mb-4">{plan.description}</p>
-                    
+
                     <div className="mb-4">
                       <div className="text-white mb-1">
                         {plan.price === "Free" ? (
@@ -237,7 +236,7 @@ export function Plans() {
                       <p className="text-sm text-white">{plan.duration}</p>
                     </div>
 
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button 
                         className={`w-full ${
                           plan.popular 
@@ -248,7 +247,7 @@ export function Plans() {
                         {plan.cta}
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
-                    </motion.div>
+                    </motion.div> */}
                   </div>
 
                   {/* Features List */}
@@ -288,7 +287,7 @@ export function Plans() {
             }}
           >
             <div className="text-center mb-8">
-              <motion.div 
+              <motion.div
                 className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-600 to-cyan-600 mb-4"
                 whileHover={{ rotate: 180, scale: 1.1 }}
                 transition={{ duration: 0.5 }}
@@ -318,7 +317,7 @@ export function Plans() {
                       backgroundClip: 'padding-box, border-box'
                     }}
                   >
-                    <motion.div 
+                    <motion.div
                       className="p-2 rounded-lg bg-gradient-to-br from-purple-600/30 to-cyan-600/30"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
@@ -331,7 +330,7 @@ export function Plans() {
               })}
             </div>
 
-            <div className="text-center p-6 rounded-xl bg-black border-2 border-purple-500/30">
+            {/* <div className="text-center p-6 rounded-xl bg-black border-2 border-purple-500/30">
               <p className="text-white mb-4">
                 Custom pricing based on your specific requirements
               </p>
@@ -341,7 +340,7 @@ export function Plans() {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </motion.div>
-            </div>
+            </div> */}
           </Card>
         </motion.div>
 
@@ -369,7 +368,7 @@ export function Plans() {
                 <p className="text-white mb-6">
                   One month free trial to build your digital foundation. Perfect for startups testing digital marketing.
                 </p>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="p-2 rounded-lg bg-purple-600/20 border border-purple-500/30">
@@ -413,7 +412,7 @@ export function Plans() {
                   }}
                 >
                   <div className="text-center">
-                    <motion.div 
+                    <motion.div
                       className="inline-flex p-6 rounded-full bg-gradient-to-br from-purple-600 to-cyan-600 mb-4"
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 2, repeat: Infinity }}
@@ -424,12 +423,12 @@ export function Plans() {
                     <p className="text-white mb-6">
                       No credit card required. Start free today.
                     </p>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50">
                         Claim Your Free Trial
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
-                    </motion.div>
+                    </motion.div> */}
                   </div>
                 </div>
               </div>

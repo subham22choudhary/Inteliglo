@@ -18,9 +18,9 @@ export default function App() {
       <div id="plans">
         <Plans />
       </div>
-      <div id="contact">
+      {/* <div id="contact">
         <CTASection />
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

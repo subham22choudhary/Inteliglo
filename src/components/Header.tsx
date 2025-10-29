@@ -5,8 +5,8 @@ import { useState } from "react";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
-  { name: "Plans", href: "#plans" },
-  { name: "Contact", href: "#contact" }
+  { name: "Plans", href: "#plans" }
+  // { name: "Contact", href: "#contact" }
 ];
 
 export function Header() {
@@ -33,7 +33,7 @@ export function Header() {
             <div className="p-2 rounded-lg bg-gradient-to-br from-purple-600 to-cyan-600">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="text-white">Digital Marketing</span>
+            <span className="text-white">Inteligo</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -50,14 +50,14 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button 
+          {/* <div className="hidden md:block">
+            <Button
               size="sm"
               className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border border-purple-400/50"
             >
               Get Started
             </Button>
-          </div>
+          </div> */}
 
           {/* Mobile Menu Button */}
           <button
@@ -82,7 +82,7 @@ export function Header() {
                 </button>
               ))}
               <div className="px-4 pt-2">
-                <Button 
+                <Button
                   size="sm"
                   className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border border-purple-400/50"
                 >
