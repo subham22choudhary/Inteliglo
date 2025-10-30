@@ -95,7 +95,7 @@ export function Footer() {
               </li> */}
               <li className="flex items-start gap-3 text-white">
                 <MapPin className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                <span>India</span>
+                <span>India | Delivering Solutions Worldwide</span>
               </li>
             </ul>
           </div>
