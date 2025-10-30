@@ -89,13 +89,13 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
                 <span>hello@inteliglo.com</span>
               </li>
-              <li className="flex items-start gap-3 text-white">
+              {/* <li className="flex items-start gap-3 text-white">
                 <Phone className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
                 <span>+91 99994 26869</span>
-              </li>
+              </li> */}
               <li className="flex items-start gap-3 text-white">
                 <MapPin className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                <span>Delhi, India</span>
+                <span>India</span>
               </li>
             </ul>
           </div>
