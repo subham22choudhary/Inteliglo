@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 
+const MAX_FEATURES = 8;
+
 const pricingPlans = [
   {
     id: "free",
@@ -33,7 +35,8 @@ const pricingPlans = [
     borderColor: "from-slate-500 to-slate-700",
     price: "Free",
     duration: "1 Month (Trial)",
-    description: "Perfect for startups & small businesses testing digital marketing",
+    description:
+      "Perfect for startups & small businesses testing digital marketing",
     features: [
       { name: "Consultation Meetings", value: "4 Meetings (1 Hr Each)", icon: Calendar },
       { name: "Website Audit & Recommendations", value: "✅ Included", icon: Globe },
@@ -42,9 +45,8 @@ const pricingPlans = [
       { name: "SEO Setup", value: "Basic SEO Setup (Titles, Meta, Sitemap)", icon: Search },
       { name: "AI Consultation", value: "AI Tools Suggestion", icon: Bot },
       { name: "Social Media", value: "1 Platform Audit", icon: Share2 },
-      { name: "Google Ads / Meta Ads", value: "Strategy Guidance", icon: DollarSign },
-      { name: "Monthly Reporting", value: "Basic Report", icon: BarChart3 },
-      { name: "Support", value: "Email Support + Weekly Calls", icon: Headphones }
+      { name: "Monthly Reporting", value: "Basic Report", icon: BarChart3 }
+      // trimmed: Google Ads Strategy, Support
     ],
     cta: "Start Free Trial",
     popular: false
@@ -62,13 +64,12 @@ const pricingPlans = [
       { name: "Consultation Meetings", value: "6 Meetings", icon: Calendar },
       { name: "Website Audit & Recommendations", value: "✅ Deep Audit", icon: Globe },
       { name: "Web Design Fixes (UI/UX)", value: "Up to 5 Pages", icon: Palette },
-      { name: "Web Development Support", value: "Minor Development Tasks", icon: Settings },
       { name: "SEO Setup", value: "On-Page Optimization", icon: Search },
       { name: "AI Consultation", value: "AI Chatbot / Content Ideas", icon: Bot },
       { name: "Social Media", value: "2 Platforms Management", icon: Share2 },
       { name: "Google Ads / Meta Ads", value: "Campaign Setup", icon: DollarSign },
-      { name: "Monthly Reporting", value: "Detailed Report", icon: BarChart3 },
       { name: "Support", value: "Priority Support", icon: Headphones }
+      // trimmed: Detailed monthly report
     ],
     cta: "Get Started",
     popular: true
@@ -90,9 +91,8 @@ const pricingPlans = [
       { name: "SEO Setup", value: "On-Page + Off-Page + Technical SEO", icon: Search },
       { name: "AI Consultation", value: "AI Automation Integration", icon: Bot },
       { name: "Social Media", value: "3 Platforms + Paid Ad Strategy", icon: Share2 },
-      { name: "Google Ads / Meta Ads", value: "Ongoing Optimization", icon: DollarSign },
-      { name: "Monthly Reporting", value: "In-Depth Analytics Dashboard", icon: BarChart3 },
       { name: "Support", value: "Dedicated Account Manager", icon: Headphones }
+      // trimmed: Ads ongoing optimization, analytics dashboard
     ],
     cta: "Choose Pro",
     popular: false
@@ -114,9 +114,8 @@ const pricingPlans = [
       { name: "SEO Setup", value: "Enterprise SEO Strategy", icon: Search },
       { name: "AI Consultation", value: "Full AI-Powered Marketing Suite", icon: Bot },
       { name: "Social Media", value: "Fully Managed (All Platforms)", icon: Share2 },
-      { name: "Google Ads / Meta Ads", value: "Performance-Based Scaling", icon: DollarSign },
-      { name: "Monthly Reporting", value: "Custom KPI Dashboard", icon: BarChart3 },
       { name: "Support", value: "Dedicated Team + SLA Support", icon: Headphones }
+      // trimmed: Performance-based scaling, custom KPI dashboard
     ],
     cta: "Contact Sales",
     popular: false
@@ -156,9 +155,10 @@ export function Plans() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black backdrop-blur-sm border-2 border-transparent relative mb-6"
             whileHover={{ scale: 1.05 }}
             style={{
-              backgroundImage: 'linear-gradient(#000, #000), linear-gradient(90deg, #a855f7, #06b6d4)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box'
+              backgroundImage:
+                "linear-gradient(#000, #000), linear-gradient(90deg, #a855f7, #06b6d4)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box"
             }}
           >
             <motion.div
@@ -169,9 +169,7 @@ export function Plans() {
             </motion.div>
             <span className="text-white">Flexible Pricing Plans</span>
           </motion.div>
-          <h2 className="mb-4 text-white">
-            Choose Your Growth Path
-          </h2>
+          <h2 className="mb-4 text-white">Choose Your Growth Path</h2>
           <p className="text-white max-w-2xl mx-auto">
             Plans designed for businesses at every stage. Start free and scale as you grow.
           </p>
@@ -199,17 +197,17 @@ export function Plans() {
                   </div>
                 )}
 
-                <Card
-                  className={`h-full bg-black backdrop-blur-sm border-2 border-transparent p-6 hover:shadow-2xl transition-all duration-500 ${plan.popular ? 'scale-105 lg:scale-110' : 'hover:scale-105'
-                    }`}
+                <Card className={`!flex !flex-col !gap-0 h-full bg-black backdrop-blur-sm border-2 border-transparent p-6 hover:shadow-2xl transition-all gap-1 duration-500 ${plan.popular ? "scale-105 lg:scale-110" : "hover:scale-105"}`}
                   style={{
-                    backgroundImage: `linear-gradient(#000, #000), linear-gradient(135deg, ${plan.borderColor.replace('from-', '#').replace(' to-', ', #')})`,
-                    backgroundOrigin: 'border-box',
-                    backgroundClip: 'padding-box, border-box'
+                    backgroundImage: `linear-gradient(#000, #000), linear-gradient(135deg, ${plan.borderColor
+                      .replace("from-", "#")
+                      .replace(" to-", ", #")})`,
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "padding-box, border-box"
                   }}
                 >
                   {/* Plan Header */}
-                  <div className="text-center mb-6">
+                  <div className="text-center mb-2">
                     <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${plan.color} mb-4`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
@@ -228,31 +226,20 @@ export function Plans() {
                           </span>
                         ) : (
                           <>
-                            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{plan.price}</span>
+                            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                              {plan.price}
+                            </span>
                             <span className="text-white text-lg">/month</span>
                           </>
                         )}
                       </div>
                       <p className="text-sm text-white">{plan.duration}</p>
                     </div>
-
-                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button 
-                        className={`w-full ${
-                          plan.popular 
-                            ? 'bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50' 
-                            : 'bg-gray-900 hover:bg-gray-800 text-white border-2 border-purple-500/30'
-                        }`}
-                      >
-                        {plan.cta}
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                    </motion.div> */}
                   </div>
 
-                  {/* Features List */}
+                  {/* Features List (max 8) */}
                   <div className="space-y-3">
-                    {plan.features.map((feature, idx) => {
+                    {plan.features.slice(0, MAX_FEATURES).map((feature, idx) => {
                       const FeatureIcon = feature.icon;
                       return (
                         <div key={idx} className="flex items-start gap-2 text-sm">
@@ -279,11 +266,13 @@ export function Plans() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <Card className="bg-black backdrop-blur-sm border-2 border-transparent p-8"
+          <Card
+            className="bg-black backdrop-blur-sm border-2 border-transparent p-8"
             style={{
-              backgroundImage: 'linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4, #a855f7)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box'
+              backgroundImage:
+                "linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4, #a855f7)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box"
             }}
           >
             <div className="text-center mb-8">
@@ -295,9 +284,7 @@ export function Plans() {
                 <Settings className="w-8 h-8 text-white" />
               </motion.div>
               <h3 className="text-white mb-2">Custom Solutions</h3>
-              <p className="text-white">
-                Build your own plan with services tailored to your goals
-              </p>
+              <p className="text-white">Build your own plan with services tailored to your goals</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -312,9 +299,10 @@ export function Plans() {
                     transition={{ delay: idx * 0.05 }}
                     className="flex items-center gap-3 p-4 rounded-lg bg-black border-2 border-transparent hover:scale-105 transition-all cursor-pointer"
                     style={{
-                      backgroundImage: 'linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)',
-                      backgroundOrigin: 'border-box',
-                      backgroundClip: 'padding-box, border-box'
+                      backgroundImage:
+                        "linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)",
+                      backgroundOrigin: "border-box",
+                      backgroundClip: "padding-box, border-box"
                     }}
                   >
                     <motion.div
@@ -329,18 +317,6 @@ export function Plans() {
                 );
               })}
             </div>
-
-            {/* <div className="text-center p-6 rounded-xl bg-black border-2 border-purple-500/30">
-              <p className="text-white mb-4">
-                Custom pricing based on your specific requirements
-              </p>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50">
-                  Request Custom Quote
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </motion.div>
-            </div> */}
           </Card>
         </motion.div>
 
@@ -351,11 +327,13 @@ export function Plans() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="bg-black backdrop-blur-sm border-2 border-transparent p-8"
+          <Card
+            className="bg-black backdrop-blur-sm border-2 border-transparent p-8"
             style={{
-              backgroundImage: 'linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box'
+              backgroundImage:
+                "linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box"
             }}
           >
             <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -404,11 +382,13 @@ export function Plans() {
 
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-2xl blur-2xl" />
-                <div className="relative p-8 rounded-2xl border-2 border-transparent bg-black backdrop-blur-sm"
+                <div
+                  className="relative p-8 rounded-2xl border-2 border-transparent bg-black backdrop-blur-sm"
                   style={{
-                    backgroundImage: 'linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)',
-                    backgroundOrigin: 'border-box',
-                    backgroundClip: 'padding-box, border-box'
+                    backgroundImage:
+                      "linear-gradient(#000, #000), linear-gradient(135deg, #a855f7, #06b6d4)",
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "padding-box, border-box"
                   }}
                 >
                   <div className="text-center">
@@ -420,15 +400,7 @@ export function Plans() {
                       <Rocket className="w-12 h-12 text-white" />
                     </motion.div>
                     <h4 className="text-white mb-2">Ready to Get Started?</h4>
-                    <p className="text-white mb-6">
-                      No credit card required. Start free today.
-                    </p>
-                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-2 border-purple-400/50 shadow-lg shadow-purple-500/50">
-                        Claim Your Free Trial
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                    </motion.div> */}
+                    <p className="text-white mb-6">No credit card required. Start free today.</p>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,6 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
   { name: "Plans", href: "#plans" }
-  // { name: "Contact", href: "#contact" }
 ];
 
 export function Header() {
@@ -50,14 +49,15 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          {/* <div className="hidden md:block">
+          <div className="hidden md:block">
             <Button
               size="sm"
+              onClick={() => scrollToSection("#contact")}
               className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border border-purple-400/50"
             >
               Get Started
             </Button>
-          </div> */}
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -84,6 +84,7 @@ export function Header() {
               <div className="px-4 pt-2">
                 <Button
                   size="sm"
+                  onClick={() => scrollToSection("#contact")}
                   className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border border-purple-400/50"
                 >
                   Get Started
