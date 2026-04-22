@@ -268,7 +268,7 @@ export default function Contact() {
                         </div>
 
                         {/* Row 1 */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.2rem' }}>
+                        <div className='inpfields' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.2rem' }}>
                             <div>
                                 <label style={labelStyle}>Full Name *</label>
                                 <input
@@ -294,7 +294,7 @@ export default function Contact() {
                         </div>
 
                         {/* Row 2 */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.2rem' }}>
+                        <div className='inpfields' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.2rem' }}>
                             <div>
                                 <label style={labelStyle}>Phone Number</label>
                                 <input
@@ -386,12 +386,19 @@ export default function Contact() {
             grid-template-columns: 1fr !important;
             gap: 3rem !important;
           }
+
+            .inpfields {
+                display: flex !important;
+                flex-direction: column;
+            }
         }
         input::placeholder, textarea::placeholder { color: rgba(123,168,187,0.4); }
         input:focus, select:focus, textarea:focus {
           border-color: var(--sky) !important;
           box-shadow: 0 0 0 3px rgba(0,212,255,0.08);
         }
+
+
         select option { background: #061520; }
       `}</style>
         </section>
