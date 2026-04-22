@@ -93,11 +93,10 @@ export default function Hero() {
                             fontSize: '0.78rem',
                             letterSpacing: '0.12em',
                             textTransform: 'uppercase',
-                            background: 'linear-gradient(135deg, #00d4ff 0%, #00ff88 100%)',
-                            color: 'var(--bg)',
-                            border: 'none',
+                            background: 'transparent',
+                            color: 'var(--white)',
+                            border: '1px solid rgba(255,255,255,0.2)',
                             padding: '0.9rem 2.5rem',
-                            fontWeight: 700,
                             cursor: 'pointer',
                             clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)',
                             textDecoration: 'none',
@@ -114,10 +113,11 @@ export default function Hero() {
                             fontSize: '0.78rem',
                             letterSpacing: '0.12em',
                             textTransform: 'uppercase',
-                            background: 'transparent',
-                            color: 'var(--white)',
-                            border: '1px solid rgba(255,255,255,0.2)',
+                            background: 'linear-gradient(135deg, #00d4ff 0%, #00ff88 100%)',
+                            color: 'var(--bg)',
+                            border: 'none',
                             padding: '0.9rem 2.5rem',
+                            fontWeight: 700,
                             cursor: 'pointer',
                             clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)',
                             textDecoration: 'none',
@@ -125,7 +125,7 @@ export default function Hero() {
                             transition: 'all 0.3s',
                         }}
                     >
-                        Talk to Us
+                        One month Free Trail
                     </a>
                 </div>
 

@@ -4,20 +4,26 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const services = [
-    { num: '01', name: 'Website Development', tag: 'Core Service', slug: 'website-development', desc: 'Custom, responsive websites and web apps built with Next.js, React, and modern stacks. Fast, scalable, and SEO-ready from day one.' },
-    { num: '02', name: 'Social Media Marketing', tag: 'Growth', slug: 'social-media-marketing', desc: 'End-to-end management across Instagram, Facebook, LinkedIn, X, YouTube, and more. Strategy, content, scheduling, and growth analytics.' },
-    { num: '03', name: 'SEO Services', tag: 'Visibility', slug: 'seo-services', desc: 'Technical SEO, on-page optimization, link building, and content strategy engineered to dominate search rankings and drive organic traffic.' },
-    { num: '04', name: 'Paid Advertising', tag: 'Performance', slug: 'paid-advertising', desc: 'High-ROI Meta Ads and Google Ads campaigns with precise audience targeting, A/B testing, and full-funnel conversion optimization.' },
-    { num: '05', name: 'Content Marketing', tag: 'Authority', slug: 'content-marketing', desc: 'Authority-building content strategies — blogs, whitepapers, case studies, and multimedia — designed to attract, engage, and convert.' },
-    { num: '06', name: 'Cybersecurity (AI Realm)', tag: 'Security', slug: 'cybersecurity', desc: 'Protecting AI-powered products and digital infrastructure with threat intelligence, vulnerability assessments, and real-time monitoring.' },
-    { num: '07', name: 'Graphic Design & Branding', tag: 'Creative', slug: 'graphic-design-branding', desc: 'Brand identity systems, visual design, creatives, UI/UX design, and marketing collateral that make your brand unforgettable.' },
-    { num: '08', name: 'Analytics & Reporting', tag: 'Intelligence', slug: 'analytics-reporting', desc: 'Data-driven dashboards and intelligent reporting that turn raw numbers into clear strategic insights for faster decision-making.' },
-    { num: '09', name: 'Sales Channel Building', tag: 'Revenue', slug: 'sales-channel-building', desc: 'End-to-end e-commerce and sales infrastructure — from marketplace setup to CRM integration and automated sales pipelines.' },
-    { num: '10', name: 'AI Chatbot Development', tag: 'AI', slug: 'ai-chatbot-development', desc: 'Custom AI chatbots trained on your business data to automate support, qualify leads, and boost engagement 24/7.' },
-    { num: '11', name: 'Migration Services', tag: 'Infrastructure', slug: 'migration-services', desc: 'Seamless platform migrations — CMS, e-commerce, cloud infrastructure — with zero downtime and full data integrity guaranteed.' },
-    { num: '12', name: 'Video Creation', tag: 'Media', slug: 'video-creation', desc: 'Cinematic brand films, product demos, reels, explainers, and motion graphics that stop the scroll and tell your story compellingly.' },
-    { num: '13', name: 'Email Marketing', tag: 'Retention', slug: 'email-marketing', desc: 'Automated drip campaigns, newsletters, and lifecycle email sequences built to nurture leads and drive repeat conversions at scale.' },
-    { num: '14', name: 'CRO — Conversion Rate Optimization', tag: 'Optimization', slug: 'conversion-rate-optimization', desc: 'Heatmaps, user session analysis, A/B testing, and UX improvements that systematically increase the percentage of visitors who convert.' },
+    { num: '01', name: 'Website Development',              tag: 'Core Service', slug: 'website-development',           desc: 'Custom, responsive websites and web apps built with Next.js, React, and modern stacks. Fast, scalable, and SEO-ready from day one.' },
+    { num: '02', name: 'Graphic Design & Branding',        tag: 'Creative',     slug: 'graphic-design-branding',        desc: 'Brand identity systems, visual design, creatives, UI/UX design, and marketing collateral that make your brand unforgettable.' },
+    { num: '03', name: 'Video Creation',                   tag: 'Media',        slug: 'video-creation',                 desc: 'Cinematic brand films, product demos, reels, explainers, and motion graphics that stop the scroll and tell your story.' },
+    { num: '04', name: 'Social Media Marketing',           tag: 'Growth',       slug: 'social-media-marketing',         desc: 'End-to-end management across Instagram, Facebook, LinkedIn, X, YouTube, and more. Strategy, content, scheduling, and growth analytics.' },
+    { num: '05', name: 'Sales Channel Building',           tag: 'Revenue',      slug: 'sales-channel-building',         desc: 'End-to-end e-commerce and sales infrastructure — from marketplace setup to CRM integration and automated sales pipelines.' },
+    { num: '06', name: 'AI Chatbot Development',           tag: 'AI',           slug: 'ai-chatbot-development',         desc: 'Custom AI chatbots trained on your business data to automate support, qualify leads, and boost engagement 24/7.' },
+    { num: '07', name: 'WhatsApp Marketing',               tag: 'Engagement',   slug: 'whatsapp-marketing',             desc: '98% open rate campaigns, automated drip sequences, and conversational marketing on the channel your audience actually reads.' },
+    { num: '08', name: 'AI Automated Sales Team',          tag: 'AI Sales',     slug: 'ai-automated-sales-team',        desc: 'AI agents that prospect, qualify, follow up, and close — with zero human dependency and a proven 25% conversion rate.' },
+    { num: '09', name: 'AI Automated Customer Support',    tag: 'AI Support',   slug: 'ai-automated-customer-support',  desc: 'AI that resolves 85% of support tickets instantly — zero wait time, zero human agents required, 24/7 across all channels.' },
+    { num: '10', name: 'AI Calling',                       tag: 'Voice AI',     slug: 'ai-calling',                     desc: 'AI voice agents that make and receive calls for sales, support, reminders, and follow-ups — indistinguishable from a human rep.' },
+    { num: '11', name: 'SEO Services',                     tag: 'Visibility',   slug: 'seo-services',                   desc: 'Technical SEO, on-page optimization, link building, and content strategy engineered to dominate search rankings.' },
+    { num: '12', name: 'Paid Advertising',                 tag: 'Performance',  slug: 'paid-advertising',               desc: 'High-ROI Meta Ads and Google Ads campaigns with precise audience targeting, A/B testing, and full-funnel conversion optimization.' },
+    { num: '13', name: 'Content Marketing',                tag: 'Authority',    slug: 'content-marketing',              desc: 'Blogs, whitepapers, case studies, and multimedia designed to attract, engage, and convert at every stage of the funnel.' },
+    { num: '14', name: 'Cybersecurity',                    tag: 'Security',     slug: 'cybersecurity',                  desc: 'Protecting AI-powered products and digital infrastructure with threat intelligence, pen testing, and real-time monitoring.' },
+    { num: '15', name: 'Analytics & Reporting',            tag: 'Intelligence', slug: 'analytics-reporting',            desc: 'Data-driven dashboards and intelligent reporting that turn raw numbers into clear strategic insights for faster decision-making.' },
+    { num: '16', name: 'Migration Services',               tag: 'Infrastructure',slug: 'migration-services',            desc: 'Seamless platform migrations — CMS, e-commerce, cloud infrastructure — with zero downtime and full data integrity guaranteed.' },
+    { num: '17', name: 'Email Marketing',                  tag: 'Retention',    slug: 'email-marketing',                desc: 'Automated drip campaigns, newsletters, and lifecycle email sequences built to nurture leads and drive repeat conversions.' },
+    { num: '18', name: 'Conversion Rate Optimization',     tag: 'Optimization', slug: 'conversion-rate-optimization',   desc: 'Heatmaps, user session analysis, A/B testing, and UX improvements that systematically increase your conversion rate.' },
+    { num: '19', name: 'Optimizing CAC & Retention',       tag: 'Growth Ops',   slug: 'cac-customer-retention',         desc: 'Slash your Customer Acquisition Cost and maximize Lifetime Value through data-driven retention engineering and churn prevention.' },
+    { num: '20', name: 'Real-Time P&L Calculation',        tag: 'Finance Ops',  slug: 'realtime-pnl-calculation',       desc: 'Live P&L dashboards factoring in total ad spend and operational costs — single source of financial truth, updated in real time.' },
 ]
 
 function ServiceCard({ svc }: { svc: typeof services[0] }) {
@@ -41,7 +47,7 @@ function ServiceCard({ svc }: { svc: typeof services[0] }) {
                 display: 'block',
             }}
         >
-            {/* top border reveal on hover */}
+            {/* top border reveal */}
             <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: 2,
                 background: 'linear-gradient(90deg, #00d4ff, #00ff88)',
@@ -71,7 +77,6 @@ function ServiceCard({ svc }: { svc: typeof services[0] }) {
                 {svc.desc}
             </div>
 
-            {/* Bottom row: tag + arrow */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.2rem' }}>
                 <div style={{
                     display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
@@ -111,7 +116,7 @@ export default function Services() {
                     letterSpacing: '0.35em', textTransform: 'uppercase',
                     color: 'var(--green)', marginBottom: '1rem',
                 }}>
-          // What We Do
+                    // What We Do
                 </div>
 
                 <h2 style={{
@@ -133,8 +138,8 @@ export default function Services() {
                     fontSize: '0.95rem', color: 'var(--muted)',
                     maxWidth: 540, lineHeight: 1.75, marginBottom: '4rem',
                 }}>
-                    From pixel-perfect design to performance-driven campaigns and AI-powered security —
-                    Inteliglo delivers every layer of your digital presence. Click any service to learn more.
+                    From pixel-perfect design to AI-powered automation and real-time financial intelligence —
+                    Inteliglo delivers every layer of your digital operation. Click any service to learn more.
                 </p>
 
                 <div style={{

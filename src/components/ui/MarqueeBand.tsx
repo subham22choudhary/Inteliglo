@@ -1,7 +1,10 @@
 const items = [
-    'Website Development', 'SEO Optimization', 'Meta & Google Ads',
-    'Cybersecurity', 'AI Chatbots', 'Social Media Marketing',
-    'Content Strategy', 'Graphic Design', 'Video Creation', 'Email Marketing',
+    'Website Development', 'Graphic Design & Branding', 'Video Creation',
+    'Social Media Marketing', 'Sales Channel Building', 'AI Chatbot Development',
+    'WhatsApp Marketing', 'AI Automated Sales Team', 'AI Calling',
+    'SEO Services', 'Paid Advertising', 'Content Marketing',
+    'Cybersecurity', 'Analytics & Reporting', 'Email Marketing',
+    'CRO', 'CAC & Retention', 'Real-Time P&L', 'AI Customer Support', 'Migration',
 ]
 
 export default function MarqueeBand() {
@@ -18,7 +21,7 @@ export default function MarqueeBand() {
         }}>
             <div style={{
                 display: 'inline-flex',
-                animation: 'marquee 22s linear infinite',
+                animation: 'marquee 30s linear infinite',
                 gap: '3rem',
             }}>
                 {doubled.map((item, i) => (
