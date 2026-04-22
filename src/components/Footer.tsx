@@ -63,7 +63,7 @@ export default function Footer() {
             }}>
                 Powered by
                 <br />
-                <span style={{ color: 'var(--sky)' }}>Human + AI Intelligence</span>
+                <span style={{ color: 'var(--sky)' }}>Inteliglo</span>
             </div>
 
             <style>{`
