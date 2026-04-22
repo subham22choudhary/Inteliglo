@@ -171,7 +171,7 @@ export default function Contact() {
                             </div>
                             <div>
                                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block' }}>Email Us</span>
-                                <span style={{ fontSize: '0.9rem', color: 'var(--white)' }}>hello@inteliglo.com</span>
+                                <span style={{ fontSize: '0.9rem', color: 'var(--white)' }}>hello.inteliglo@gmail.com</span>
                             </div>
                         </div>
 
