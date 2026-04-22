@@ -1,27 +1,54 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+
+const navItems = [
+    { label: 'Home', id: 'hero' },
+    { label: 'Services', id: 'services' },
+    { label: 'About', id: 'about' },
+    { label: 'Process', id: 'process' },
+    { label: 'Contact', id: 'contact' },
+]
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false)
 
+    // Scroll-aware background
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20)
         window.addEventListener('scroll', onScroll)
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
+    // Tab visibility trick
+    useEffect(() => {
+        const originalTitle = 'Inteliglo — Digital Intelligence Agency'
+        const handleVisibility = () => {
+            if (document.hidden) {
+                document.title = '👀 Try this — Come back!'
+            } else {
+                document.title = '👋 Welcome Back — Inteliglo'
+                setTimeout(() => {
+                    document.title = originalTitle
+                }, 3000)
+            }
+        }
+        document.addEventListener('visibilitychange', handleVisibility)
+        return () => document.removeEventListener('visibilitychange', handleVisibility)
+    }, [])
+
+    // Smooth scroll without adding # to URL
+    const scrollTo = (e: React.MouseEvent, id: string) => {
+        e.preventDefault()
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <header style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
+            top: 0, left: 0, right: 0,
             zIndex: 1000,
-            background: scrolled
-                ? 'rgba(3,11,18,0.88)'
-                : 'rgba(3,11,18,0.72)',
+            background: scrolled ? 'rgba(3,11,18,0.88)' : 'rgba(3,11,18,0.72)',
             backdropFilter: 'blur(20px) saturate(1.6)',
             WebkitBackdropFilter: 'blur(20px) saturate(1.6)',
             borderBottom: '1px solid rgba(0,212,255,0.18)',
@@ -32,8 +59,9 @@ export default function Header() {
             justifyContent: 'space-between',
             transition: 'background 0.3s ease',
         }}>
+
             {/* Logo */}
-            <Link href="/" style={{ textDecoration: 'none' }}>
+            <div onClick={(e) => scrollTo(e as any, 'hero')} style={{ cursor: 'pointer' }}>
                 <div style={{
                     fontFamily: 'var(--font-orbitron)',
                     fontWeight: 900,
@@ -46,24 +74,15 @@ export default function Header() {
                 }}>
                     INTEL<span style={{ WebkitTextFillColor: '#00ff88' }}>IGLO</span>
                 </div>
-            </Link>
+            </div>
 
-            {/* Nav — hidden on mobile */}
-            <nav style={{
-                display: 'flex',
-                gap: '2.5rem',
-                alignItems: 'center',
-            }} className="hidden-mobile">
-                {[
-                    { label: 'Home', href: '#hero' },
-                    { label: 'Services', href: '#services' },
-                    { label: 'About', href: '#about' },
-                    { label: 'Process', href: '#process' },
-                    { label: 'Contact', href: '#contact' },
-                ].map((item) => (
+            {/* Nav */}
+            <nav className="intelignav" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+                {navItems.map((item) => (
                     <a
-                        key={item.href}
-                        href={item.href}
+                        key={item.id}
+                        href="#"
+                        onClick={(e) => scrollTo(e, item.id)}
                         style={{
                             fontFamily: 'var(--font-mono)',
                             fontSize: '0.72rem',
@@ -82,9 +101,10 @@ export default function Header() {
                 ))}
             </nav>
 
-            {/* CTA Button */}
+            {/* CTA */}
             <a
-                href="#contact"
+                href="#"
+                onClick={(e) => scrollTo(e, 'contact')}
                 style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.72rem',
@@ -114,7 +134,7 @@ export default function Header() {
 
             <style>{`
         @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
+          .intelignav { display: none !important; }
         }
       `}</style>
         </header>
