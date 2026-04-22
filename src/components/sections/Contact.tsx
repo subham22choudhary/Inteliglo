@@ -73,6 +73,21 @@ export default function Contact() {
             },
         ])
 
+        // Supabase insert ke baad, neeche yeh add karo:
+        if (!error) {
+            await fetch('/api/meta-event', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    full_name: form.full_name,
+                    email: form.email,
+                    phone: form.phone,
+                }),
+            })
+        }
+
+
+
         if (error) {
             setStatus('error')
             setErrorMsg('Something went wrong. Please try again.')
