@@ -71,12 +71,14 @@ export default function Footer() {
           footer {
             grid-template-columns: 1fr !important;
             text-align: center;
+            justify-items: center;
           }
           footer > div:last-child {
             text-align: center !important;
           }
         }
-      `}</style>
+      `}
+            </style>
         </footer>
     )
 }
