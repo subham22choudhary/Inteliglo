@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Inteliglo — Digital Intelligence Agency',
+  title: 'Inteliglo Digital Intelligence Agency',
   description:
     'Full-spectrum digital agency: Web Development, SEO, Paid Ads, Social Media Marketing, Cybersecurity, AI Chatbots, and more.',
   keywords: [
