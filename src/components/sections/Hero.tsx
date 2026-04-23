@@ -75,7 +75,7 @@ export default function Hero() {
                     margin: '0 auto 3rem',
                     lineHeight: 1.7,
                 }}>
-                    Inteliglo is a full-spectrum digital agency powering brands with cutting-edge
+                    Inteliglo is a full-spectrum digital company powering brands with cutting-edge
                     web development, AI-driven marketing, and enterprise-grade cybersecurity — all under one roof.
                 </p>
 

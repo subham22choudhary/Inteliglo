@@ -33,7 +33,7 @@ export default function Footer() {
                     letterSpacing: '0.1em',
                     marginTop: '0.4rem',
                 }}>
-                    Digital Intelligence Agency
+                    Digital Intelligence Company
                 </div>
             </div>
 

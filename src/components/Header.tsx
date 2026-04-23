@@ -22,7 +22,7 @@ export default function Header() {
 
     // Tab visibility trick
     useEffect(() => {
-        const originalTitle = 'Inteliglo Digital Intelligence Agency'
+        const originalTitle = 'Inteliglo Digital Intelligence Company'
         const handleVisibility = () => {
             if (document.hidden) {
                 document.title = '👀 Try this Come back!'

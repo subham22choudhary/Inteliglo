@@ -421,7 +421,7 @@ export const services: ServiceData[] = [
         ],
         faqs: [
             { q: 'How long does SEO take to show results?', a: 'Typically 3–6 months for meaningful ranking improvements. Technical fixes show impact faster; competitive keywords take longer.' },
-            { q: 'Do you guarantee first-page rankings?', a: 'No ethical SEO agency can guarantee rankings — Google\'s algorithm is theirs, not ours. We do guarantee a proven process and transparent reporting.' },
+            { q: 'Do you guarantee first-page rankings?', a: 'No ethical SEO company can guarantee rankings — Google\'s algorithm is theirs, not ours. We do guarantee a proven process and transparent reporting.' },
             { q: 'Is SEO a one-time thing?', a: 'No. SEO requires ongoing effort — competitors don\'t stop, Google updates its algorithm, and your content needs to stay fresh.' },
         ],
     },

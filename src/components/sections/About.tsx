@@ -138,7 +138,7 @@ export default function About() {
                     lineHeight: 1.75,
                     marginBottom: '2.5rem',
                 }}>
-                    Inteliglo is not a typical agency. We&apos;re a technology-forward digital growth partner —
+                    Inteliglo is not a typical company. We&apos;re a technology-forward digital growth partner —
                     combining deep technical expertise with creative intelligence to help brands scale faster,
                     smarter, and more securely in a hyper-competitive digital landscape.
                 </p>

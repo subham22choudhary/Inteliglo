@@ -26,13 +26,13 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Inteliglo | Digital Intelligence Agency – AI, Growth & Cybersecurity',
+  title: 'Inteliglo | Digital Intelligence Company – AI, Growth & Cybersecurity',
   description:
-    'Inteliglo is a full-spectrum digital intelligence agency delivering website development, AI-powered marketing, automation, paid ads, SEO, cybersecurity, and growth systems that scale brands globally.',
+    'Inteliglo is a full-spectrum digital intelligence company delivering website development, AI-powered marketing, automation, paid ads, SEO, cybersecurity, and growth systems that scale brands globally.',
   keywords: [
     'Inteliglo',
-    'digital intelligence agency',
-    'AI marketing agency',
+    'digital intelligence company',
+    'AI marketing company',
     'website development',
     'Next.js development',
     'React development',
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     'penetration testing',
     'threat monitoring',
     'cloud migration',
-    'digital growth agency',
+    'digital growth company',
     'full stack digital services',
-    'AI automation agency',
+    'AI automation company',
   ],
 };
 
