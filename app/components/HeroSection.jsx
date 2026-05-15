@@ -216,6 +216,11 @@ export default function HeroSection() {
   return (
     <>
       <style>{`
+
+        body {
+            margin: 0;
+        }
+            
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
 
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
