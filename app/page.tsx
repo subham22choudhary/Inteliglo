@@ -1,5 +1,5 @@
-import InteligloOverview from "./components/HeroSection";
+import InteligloHomepage from "./components/HeroSection";
 
 export default function Home() {
-  return <InteligloOverview />;
+  return <InteligloHomepage />;
 }
