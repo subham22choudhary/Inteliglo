@@ -27,7 +27,18 @@ const CATEGORIES = [
   },
   {
     name: "Finance Tools",
-    tools: [],
+    tools: [
+      { name: "Compound Interest Calculator", path: "/tools/compound-interest-calculator" },
+      { name: "EMI Calculator", path: "/tools/emi-calculator" },
+      { name: "FD Calculator", path: "/tools/fd-calculator" },
+      { name: "GST Calculator", path: "/tools/gst-calculator" },
+      { name: "Income Tax Calculator", path: "/tools/income-tax-calculator" },
+      { name: "Loan Calculator", path: "/tools/loan-calculator" },
+      { name: "Percentage Calculator", path: "/tools/percentage-calculator" },
+      { name: "PPF Calculator", path: "/tools/ppf-calculator" },
+      { name: "Simple Interest Calculator", path: "/tools/simple-interest-calculator" },
+      { name: "SIP Calculator", path: "/tools/sip-calculator" },
+    ],
   },
   {
     name: "SEO Tools",
