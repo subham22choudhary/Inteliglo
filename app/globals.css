@@ -70,6 +70,196 @@ h1 {
     background: #c9a900;
 }
 
+
+.controls {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 0 24px;
+    align-items: center;
+    font-family: Helvetica, Arial, sans-serif;
+    justify-content: center;
+}
+
+.label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #a8a89c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #a8a89c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.number-input {
+    width: 70px;
+    background: #141414;
+    color: #f5f5f0;
+    border: 1px solid #262626;
+    border-radius: 2px;
+    padding: 6px 10px;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: #f5f5f0;
+    border: 1px solid #333;
+}
+
+.status {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    min-height: 16px;
+}
+
+.uuid-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #141414;
+    border: 1px solid #262626;
+    border-radius: 2px;
+    padding: 12px 18px;
+}
+
+.uuid-code {
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    color: #f5f5f0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.copy-icon-btn {
+    flex-shrink: 0;
+    background: transparent;
+    color: #c9a900;
+    border: 1px solid #333;
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+
+/* ===== Add these to global.css — new classes only, nothing above is touched ===== */
+
+.ig-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #141414;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ig-field:focus-within {
+    border-color: #4caf3d;
+    box-shadow: 0 0 0 3px rgba(76, 175, 61, 0.15);
+}
+
+.ig-field-prefix,
+.ig-field-suffix {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #c9a900;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.ig-input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f5f5f0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    -moz-appearance: textfield;
+}
+
+.ig-input::-webkit-outer-spin-button,
+.ig-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Premium range slider */
+.ig-slider {
+    --ig-slider-percent: 0%;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(to right,
+            #4caf3d 0%,
+            #4caf3d var(--ig-slider-percent),
+            #262626 var(--ig-slider-percent),
+            #262626 100%);
+    outline: none;
+    cursor: pointer;
+    margin: 4px 0 6px;
+}
+
+.ig-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #f5f5f0;
+    border: 3px solid #4caf3d;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ig-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    border-color: #c9a900;
+}
+
+.ig-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #f5f5f0;
+    border: 3px solid #4caf3d;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ig-slider::-moz-range-thumb:hover {
+    transform: scale(1.15);
+    border-color: #c9a900;
+}
+
+.ig-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: transparent;
+}
+
 @media (max-width: 480px) {
     h1 {
         font-size: 48px;
