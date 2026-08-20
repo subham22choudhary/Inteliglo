@@ -25,41 +25,58 @@ const CATEGORIES = [
       { name: "YAML Formatter", path: "/tools/yaml-formatter" },
     ],
   },
+
   {
     name: "Finance Tools",
     tools: [
+      { name: "Business Loan Calculator", path: "/tools/business-loan-calculator" },
+      { name: "Car Loan EMI Calculator", path: "/tools/car-loan-emi-calculator" },
       { name: "Compound Interest Calculator", path: "/tools/compound-interest-calculator" },
+      { name: "Education Loan Calculator", path: "/tools/education-loan-calculator" },
       { name: "EMI Calculator", path: "/tools/emi-calculator" },
+      { name: "EMI vs Prepayment Calculator", path: "/tools/emi-vs-prepayment-calculator" },
       { name: "FD Calculator", path: "/tools/fd-calculator" },
+      { name: "Gold Loan Calculator", path: "/tools/gold-loan-calculator" },
       { name: "GST Calculator", path: "/tools/gst-calculator" },
+      { name: "Home Loan EMI Calculator", path: "/tools/home-loan-emi-calculator" },
       { name: "Income Tax Calculator", path: "/tools/income-tax-calculator" },
       { name: "Loan Calculator", path: "/tools/loan-calculator" },
+      { name: "Loan Eligibility Calculator", path: "/tools/loan-eligibility-calculator" },
+      { name: "Loan Interest Calculator", path: "/tools/loan-interest-calculator" },
+      { name: "Loan Tenure Calculator", path: "/tools/loan-tenure-calculator" },
       { name: "Percentage Calculator", path: "/tools/percentage-calculator" },
+      { name: "Personal Loan EMI Calculator", path: "/tools/personal-loan-emi-calculator" },
       { name: "PPF Calculator", path: "/tools/ppf-calculator" },
       { name: "Simple Interest Calculator", path: "/tools/simple-interest-calculator" },
       { name: "SIP Calculator", path: "/tools/sip-calculator" },
     ],
   },
+
   {
     name: "SEO Tools",
     tools: [],
   },
+
   {
     name: "AI Tools",
     tools: [],
   },
+
   {
     name: "PDF Tools",
     tools: [],
   },
+
   {
     name: "Image Tools",
     tools: [],
   },
+
   {
     name: "Text Tools",
     tools: [],
   },
+
   {
     name: "Student Tools",
     tools: [],
