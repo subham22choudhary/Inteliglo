@@ -4,12 +4,54 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 
-// If you already create a Supabase client elsewhere in your project
-// (e.g. lib/supabase.js), import that instead of making a new one here.
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
+let supabase;
+
+function getSupabaseClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!url || !key) {
+    console.warn("Supabase env vars missing — live user count disabled.");
+    return null;
+  }
+
+  return createClient(url, key);
+}
+
+function useLiveOnlineUsers() {
+  const [count, setCount] = useState(null);
+
+  useEffect(() => {
+    if (!supabase) supabase = getSupabaseClient();
+    if (!supabase) return; // env vars missing — bail out quietly
+
+    const sessionId =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Math.random().toString(36).slice(2);
+
+    const channel = supabase.channel("online-users", {
+      config: { presence: { key: sessionId } },
+    });
+
+    channel
+      .on("presence", { event: "sync" }, () => {
+        const state = channel.presenceState();
+        setCount(Object.keys(state).length);
+      })
+      .subscribe(async (status) => {
+        if (status === "SUBSCRIBED") {
+          await channel.track({ online_at: new Date().toISOString() });
+        }
+      });
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
+  return count;
+}
 
 const CATEGORIES = [
   {
@@ -19,7 +61,7 @@ const CATEGORIES = [
       { name: "CSV to JSON", path: "/tools/csv-to-json" },
       { name: "HTML CSS JS Minify", path: "/tools/html-css-js-minify" },
       { name: "HTML Encoder Decoder", path: "/tools/html-encoder-decoder" },
-      { name: "HTML Formatter", path: "/tools/html-formatter" },
+      { name: "HTML CSS JSS Formatter", path: "/tools/html-formatter" },
       { name: "JSON Formatter", path: "/tools/json-formatter" },
       { name: "JSON to CSV", path: "/tools/json-to-csv" },
       { name: "JSON Validator", path: "/tools/json-validator" },
@@ -69,37 +111,7 @@ const CATEGORIES = [
   { name: "Student Tools", tools: [] },
 ];
 
-function useLiveOnlineUsers() {
-  const [count, setCount] = useState(null); // null = "still connecting"
 
-  useEffect(() => {
-    const sessionId =
-      typeof crypto !== "undefined" && crypto.randomUUID
-        ? crypto.randomUUID()
-        : Math.random().toString(36).slice(2);
-
-    const channel = supabase.channel("online-users", {
-      config: { presence: { key: sessionId } },
-    });
-
-    channel
-      .on("presence", { event: "sync" }, () => {
-        const state = channel.presenceState();
-        setCount(Object.keys(state).length);
-      })
-      .subscribe(async (status) => {
-        if (status === "SUBSCRIBED") {
-          await channel.track({ online_at: new Date().toISOString() });
-        }
-      });
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, []);
-
-  return count;
-}
 
 export default function InteligloHomepage() {
   const active = CATEGORIES.filter((c) => c.tools.length > 0);
