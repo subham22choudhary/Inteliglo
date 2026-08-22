@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 const FLAG_OPTIONS = [
     { key: "g", label: "g — global" },
     { key: "i", label: "i — ignore case" },

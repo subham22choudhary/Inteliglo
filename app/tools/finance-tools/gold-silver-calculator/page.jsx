@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["GOLD & SILVER"],
+};
+
 function calculateMetalPrice(pricePerGram, grams, gstPercent, makingChargePercent) {
     const metalValue = pricePerGram * grams;
     const makingCharge = (metalValue * makingChargePercent) / 100;

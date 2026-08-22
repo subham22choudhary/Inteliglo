@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["TAX & GOVERNMENT CHARGES"],
+};
+
 const GST_RATES = [
     { key: "5", label: "5%", rate: 5 },
     { key: "12", label: "12%", rate: 12 },

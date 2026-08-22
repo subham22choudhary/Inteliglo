@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["PERSONAL FINANCE"],
+};
+
 function getDTIBand(dtiPercent) {
     if (dtiPercent <= 20) return { label: "Excellent", color: "#4caf3d" };
     if (dtiPercent <= 36) return { label: "Good", color: "#84cc16" };

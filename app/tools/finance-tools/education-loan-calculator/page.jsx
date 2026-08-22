@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateEducationLoan(principal, annualRate, months, moratoriumMonths, interestDuringMoratorium) {
     const monthlyRate = annualRate / 12 / 100;
 

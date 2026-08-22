@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 const LTV_OPTIONS = [
     { key: "60", label: "60%" },
     { key: "75", label: "75% (RBI cap)" },

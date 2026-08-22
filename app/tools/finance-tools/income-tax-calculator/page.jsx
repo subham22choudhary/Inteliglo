@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["TAX & GOVERNMENT CHARGES"],
+};
+
 /* New Regime slabs (FY 2025-26 / AY 2026-27) */
 const NEW_REGIME_SLABS = [
     { upto: 400000, rate: 0 },

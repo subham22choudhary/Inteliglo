@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function minifyHTML(input, { stripComments, collapseWhitespace }) {
     let out = input;
 

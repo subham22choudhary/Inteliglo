@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 const KEYWORDS = [
     "SELECT", "FROM", "WHERE", "AND", "OR", "NOT", "IN", "EXISTS", "BETWEEN", "LIKE", "IS", "NULL",
     "INSERT", "INTO", "VALUES", "UPDATE", "SET", "DELETE", "CREATE", "TABLE", "ALTER", "DROP",
@@ -11,7 +15,6 @@ const KEYWORDS = [
     "REFERENCES", "DEFAULT", "CONSTRAINT", "INDEX", "VIEW", "WITH", "RETURNING",
 ];
 
-// Order matters: multi-word keywords must be matched before their single-word substrings
 const KEYWORD_PATTERN = KEYWORDS
     .slice()
     .sort((a, b) => b.length - a.length)

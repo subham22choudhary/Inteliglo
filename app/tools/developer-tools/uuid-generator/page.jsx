@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function generateUUIDv4() {
     if (typeof crypto !== "undefined" && crypto.randomUUID) {
         return crypto.randomUUID();

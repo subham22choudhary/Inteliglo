@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function stripXMLWhitespace(xml) {
     // Remove whitespace between tags, but preserve it inside text content where meaningful
     return xml.replace(/>\s+</g, "><").trim();

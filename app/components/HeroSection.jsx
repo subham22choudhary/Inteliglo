@@ -10,42 +10,97 @@ function formatLabel(slug) {
     .join(" ");
 }
 
-function getCategories() {
-  const toolsDir = path.join(process.cwd(), "app", "tools");
+// Extract `export const meta = {...}` block from page.jsx as plain text
+// (no require/import — avoids "use client" / JSX execution issues)
+function extractMeta(fileContent) {
+  const match = fileContent.match(/export\s+const\s+meta\s*=\s*(\{[\s\S]*?\})\s*;/);
+  if (!match) return null;
 
-  let categoryFolders = [];
   try {
-    categoryFolders = fs
-      .readdirSync(toolsDir, { withFileTypes: true })
-      .filter((d) => d.isDirectory());
-  } catch {
-    return [];
+    // meta object is plain JS (strings/arrays), safe to eval in isolation
+    // eslint-disable-next-line no-new-func
+    const metaObj = new Function(`return ${match[1]}`)();
+    return metaObj;
+  } catch (err) {
+    console.error("Failed to parse meta block:", err.message);
+    return null;
   }
-
-  return categoryFolders
-    .map((catDir) => {
-      const catPath = path.join(toolsDir, catDir.name);
-      const toolFolders = fs
-        .readdirSync(catPath, { withFileTypes: true })
-        .filter((d) => d.isDirectory());
-
-      const tools = toolFolders.map((toolDir) => ({
-        name: formatLabel(toolDir.name),
-        path: `/tools/${catDir.name}/${toolDir.name}`,
-      }));
-
-      return {
-        name: formatLabel(catDir.name),
-        tools: tools.sort((a, b) => a.name.localeCompare(b.name)),
-      };
-    })
-    .filter((cat) => cat.tools.length > 0);
 }
 
-// Yeh Server Component hai — HeroSection isko default export karega.
-// Yahi crawling ka pura kaam hai, koi hardcoding nahi.
+function findToolFolders(dir, base = "") {
+  let results = [];
+  let entries;
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch (err) {
+    console.error("Error reading dir:", dir, err.message);
+    return results;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+
+    const fullPath = path.join(dir, entry.name);
+    const relPath = base ? `${base}/${entry.name}` : entry.name;
+    const pagePath = path.join(fullPath, "page.jsx");
+
+    if (fs.existsSync(pagePath)) {
+      results.push({ pagePath, relPath });
+    } else {
+      // keep walking (for category subfolders like finance-tools/)
+      results = results.concat(findToolFolders(fullPath, relPath));
+    }
+  }
+
+  return results;
+}
+
+function getTagsData() {
+  const toolsDir = path.join(process.cwd(), "app", "tools");
+  const toolFolders = findToolFolders(toolsDir);
+
+  const tagMap = {};
+
+  for (const { pagePath, relPath } of toolFolders) {
+    let meta = null;
+    try {
+      const content = fs.readFileSync(pagePath, "utf-8");
+      meta = extractMeta(content);
+    } catch (err) {
+      console.error("Error reading page:", relPath, err.message);
+    }
+
+    const slug = relPath.split("/").pop();
+    const name = meta?.name || formatLabel(slug);
+    const tags = meta?.tags?.length ? meta.tags : ["Uncategorized"];
+    const toolPath = `/tools/${relPath}`;
+
+    for (const tag of tags) {
+      if (!tagMap[tag]) tagMap[tag] = [];
+      tagMap[tag].push({ name, path: toolPath });
+    }
+  }
+
+  return Object.entries(tagMap)
+    .map(([tag, tools]) => ({
+      name: tag,
+      tools: tools.sort((a, b) => a.name.localeCompare(b.name)),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 export default function HeroSection() {
-  const categories = getCategories();
+  const categories = getTagsData();
+
+  if (categories.length === 0) {
+    return (
+      <section className="ig">
+        <div className="ig-inner">
+          <p>Koi tools nahi mile — check karo page.jsx mein meta export hai ya nahi, aur terminal console error dekho.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="ig">

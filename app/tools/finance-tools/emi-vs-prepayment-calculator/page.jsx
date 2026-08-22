@@ -2,11 +2,10 @@
 
 import { useState, useMemo } from "react";
 
-/**
- * Simulates month-by-month amortization, applying an optional prepayment
- * (one-time at a specific month, or recurring every month) that reduces principal directly.
- * Returns months taken to close the loan and total interest paid.
- */
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function simulateLoan(principal, annualRate, months, prepaymentType, prepaymentAmount, prepaymentMonth) {
     const monthlyRate = annualRate / 12 / 100;
     const emi =

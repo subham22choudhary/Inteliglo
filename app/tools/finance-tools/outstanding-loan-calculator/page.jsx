@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateOutstanding(principal, annualRate, totalMonths, monthsPaid) {
     const monthlyRate = annualRate / 12 / 100;
     const emi =

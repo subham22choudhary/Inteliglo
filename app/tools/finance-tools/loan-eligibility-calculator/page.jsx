@@ -2,11 +2,10 @@
 
 import { useState, useMemo } from "react";
 
-/**
- * Uses the standard FOIR (Fixed Obligation to Income Ratio) method banks use:
- * Max EMI a lender will allow = (Net Monthly Income × FOIR%) − Existing EMIs
- * Then reverse the EMI formula to find the max loan amount for the given rate/tenure.
- */
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateEligibility(monthlyIncome, existingEMIs, foirPercent, annualRate, tenureMonths) {
     const maxAllowedEMI = Math.max(0, (monthlyIncome * foirPercent) / 100 - existingEMIs);
     const monthlyRate = annualRate / 12 / 100;

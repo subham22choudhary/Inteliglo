@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function formatJSON(input, indentUnit) {
     const parsed = JSON.parse(input);
     return JSON.stringify(parsed, null, indentUnit);

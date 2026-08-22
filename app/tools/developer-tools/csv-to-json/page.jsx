@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-/**
- * Parses a single CSV line respecting quoted fields (commas/newlines inside quotes,
- * and "" as an escaped quote), for the given delimiter.
- */
+export const meta = {
+  tags: ["Developer Tools"],
+};
+
 function parseCSVLine(line, delimiter) {
   const result = [];
   let current = "";

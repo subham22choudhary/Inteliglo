@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateBusinessLoan(principal, annualRate, months, processingFeePercent) {
     const monthlyRate = annualRate / 12 / 100;
     const emi =

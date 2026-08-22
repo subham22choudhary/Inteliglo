@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMI"],
+};
+
 function calculateEMI(principal, annualRate, months) {
     const monthlyRate = annualRate / 12 / 100;
 

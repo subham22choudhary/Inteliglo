@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["PERSONAL FINANCE"],
+};
+
 const MODES = [
     { key: "of", label: "X% of Y" },
     { key: "isWhatPercent", label: "X is what % of Y" },

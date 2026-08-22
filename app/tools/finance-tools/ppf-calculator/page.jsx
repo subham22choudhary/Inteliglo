@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["INVESTMENT & RETURNS"],
+};
+
 const PPF_RATE = 7.1; // current PPF interest rate (Government of India, revised quarterly)
 
 function calculatePPF(yearlyInvestment, years, rate) {

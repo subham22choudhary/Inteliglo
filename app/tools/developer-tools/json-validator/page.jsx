@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-/**
- * Parses a JSON.parse SyntaxError message to find the character position,
- * then converts that into a line/column number for a helpful error display.
- */
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function locateError(input, message) {
     const posMatch = message.match(/position (\d+)/);
     if (!posMatch) return null;

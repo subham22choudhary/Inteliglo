@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-/** Encode special HTML characters into named/numeric entities. */
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function encodeHTML(str, mode) {
     const namedMap = {
         "&": "&amp;",

@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 
-/**
- * Flattens nested objects into dot-notation keys, e.g. { a: { b: 1 } } -> { "a.b": 1 }
- * Arrays inside objects are JSON-stringified rather than expanded into more rows,
- * since CSV is inherently flat/tabular.
- */
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 function flattenObject(obj, prefix = "", result = {}) {
     Object.keys(obj).forEach((key) => {
         const value = obj[key];

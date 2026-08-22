@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["INVESTMENT & RETURNS"],
+};
+
 const FREQUENCIES = [
     { key: "1", label: "Annually", n: 1 },
     { key: "2", label: "Semi-Annually", n: 2 },

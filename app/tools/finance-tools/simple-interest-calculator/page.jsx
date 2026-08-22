@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["INVESTMENT & RETURNS"],
+};
+
 function calculateSimpleInterest(principal, annualRate, years) {
     const interest = (principal * annualRate * years) / 100;
     const total = principal + interest;

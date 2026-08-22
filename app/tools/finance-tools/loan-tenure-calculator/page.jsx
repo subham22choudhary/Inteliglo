@@ -2,10 +2,10 @@
 
 import { useState, useMemo } from "react";
 
-/**
- * Reverse EMI formula: given P, r, and EMI, solve for number of months n.
- * n = -log(1 - (P × r) / EMI) / log(1 + r)
- */
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateTenure(principal, annualRate, desiredEMI) {
     const monthlyRate = annualRate / 12 / 100;
 

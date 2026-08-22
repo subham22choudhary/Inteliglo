@@ -2,92 +2,96 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
+export const meta = {
+  tags: ["Developer Tools"],
+};
+
 const CHARSETS = {
-    upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    lower: "abcdefghijklmnopqrstuvwxyz",
-    numbers: "0123456789",
-    symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?~",
+  upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lower: "abcdefghijklmnopqrstuvwxyz",
+  numbers: "0123456789",
+  symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?~",
 };
 
 function secureRandom(max) {
-    const array = new Uint32Array(1);
-    crypto.getRandomValues(array);
-    return array[0] % max;
+  const array = new Uint32Array(1);
+  crypto.getRandomValues(array);
+  return array[0] % max;
 }
 
 export default function Page() {
-    const [length, setLength] = useState(16);
-    const [upper, setUpper] = useState(true);
-    const [lower, setLower] = useState(true);
-    const [numbers, setNumbers] = useState(true);
-    const [symbols, setSymbols] = useState(false);
-    const [password, setPassword] = useState("");
-    const [strength, setStrength] = useState({ label: "Strong", color: "#84cc16" });
-    const [toastVisible, setToastVisible] = useState(false);
-    const toastTimeout = useRef(null);
+  const [length, setLength] = useState(16);
+  const [upper, setUpper] = useState(true);
+  const [lower, setLower] = useState(true);
+  const [numbers, setNumbers] = useState(true);
+  const [symbols, setSymbols] = useState(false);
+  const [password, setPassword] = useState("");
+  const [strength, setStrength] = useState({ label: "Strong", color: "#84cc16" });
+  const [toastVisible, setToastVisible] = useState(false);
+  const toastTimeout = useRef(null);
 
-    const generatePassword = useCallback(() => {
-        let pool = "";
-        if (upper) pool += CHARSETS.upper;
-        if (lower) pool += CHARSETS.lower;
-        if (numbers) pool += CHARSETS.numbers;
-        if (symbols) pool += CHARSETS.symbols;
+  const generatePassword = useCallback(() => {
+    let pool = "";
+    if (upper) pool += CHARSETS.upper;
+    if (lower) pool += CHARSETS.lower;
+    if (numbers) pool += CHARSETS.numbers;
+    if (symbols) pool += CHARSETS.symbols;
 
-        if (!pool) return;
+    if (!pool) return;
 
-        let pwd = "";
-        for (let i = 0; i < length; i++) {
-            pwd += pool[secureRandom(pool.length)];
-        }
-        setPassword(pwd);
+    let pwd = "";
+    for (let i = 0; i < length; i++) {
+      pwd += pool[secureRandom(pool.length)];
+    }
+    setPassword(pwd);
 
-        const entropy = length * Math.log2(pool.length);
-        if (entropy < 40) setStrength({ label: "Weak", color: "#ef4444" });
-        else if (entropy < 60) setStrength({ label: "Fair", color: "#f59e0b" });
-        else if (entropy < 80) setStrength({ label: "Strong", color: "#84cc16" });
-        else setStrength({ label: "Very Strong", color: "#22c55e" });
-    }, [length, upper, lower, numbers, symbols]);
+    const entropy = length * Math.log2(pool.length);
+    if (entropy < 40) setStrength({ label: "Weak", color: "#ef4444" });
+    else if (entropy < 60) setStrength({ label: "Fair", color: "#f59e0b" });
+    else if (entropy < 80) setStrength({ label: "Strong", color: "#84cc16" });
+    else setStrength({ label: "Very Strong", color: "#22c55e" });
+  }, [length, upper, lower, numbers, symbols]);
 
-    useEffect(() => {
-        generatePassword();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+  useEffect(() => {
+    generatePassword();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    useEffect(() => {
-        generatePassword();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [length, upper, lower, numbers, symbols]);
+  useEffect(() => {
+    generatePassword();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [length, upper, lower, numbers, symbols]);
 
-    const handleCheckboxChange = (setter, currentValue) => {
-        const others = [
-            upper, lower, numbers, symbols,
-        ].filter((_, i) => i !== ["upper", "lower", "numbers", "symbols"].indexOf(
-            setter === setUpper ? "upper" : setter === setLower ? "lower" : setter === setNumbers ? "numbers" : "symbols"
-        ));
-        const willAllBeUnchecked = currentValue && !others.some(Boolean);
-        if (willAllBeUnchecked) return; // keep at least one checked
-        setter(!currentValue);
-    };
+  const handleCheckboxChange = (setter, currentValue) => {
+    const others = [
+      upper, lower, numbers, symbols,
+    ].filter((_, i) => i !== ["upper", "lower", "numbers", "symbols"].indexOf(
+      setter === setUpper ? "upper" : setter === setLower ? "lower" : setter === setNumbers ? "numbers" : "symbols"
+    ));
+    const willAllBeUnchecked = currentValue && !others.some(Boolean);
+    if (willAllBeUnchecked) return; // keep at least one checked
+    setter(!currentValue);
+  };
 
-    const changeLength = (delta) => {
-        setLength((prev) => {
-            let next = prev + delta;
-            if (next < 6) next = 6;
-            if (next > 64) next = 64;
-            return next;
-        });
-    };
+  const changeLength = (delta) => {
+    setLength((prev) => {
+      let next = prev + delta;
+      if (next < 6) next = 6;
+      if (next > 64) next = 64;
+      return next;
+    });
+  };
 
-    const copyPassword = async () => {
-        await navigator.clipboard.writeText(password);
-        setToastVisible(true);
-        clearTimeout(toastTimeout.current);
-        toastTimeout.current = setTimeout(() => setToastVisible(false), 2500);
-    };
+  const copyPassword = async () => {
+    await navigator.clipboard.writeText(password);
+    setToastVisible(true);
+    clearTimeout(toastTimeout.current);
+    toastTimeout.current = setTimeout(() => setToastVisible(false), 2500);
+  };
 
-    return (
-        <>
-            <style>{`
+  return (
+    <>
+      <style>{`
         * {
           margin: 0;
           padding: 0;
@@ -267,106 +271,106 @@ export default function Page() {
         }
       `}</style>
 
-            <div className="pg-body">
-                <div className="container">
-                    <h1>Free Random Password Generator</h1>
+      <div className="pg-body">
+        <div className="container">
+          <h1>Free Random Password Generator</h1>
 
-                    <p className="subtitle">Create a strong random password.</p>
+          <p className="subtitle">Create a strong random password.</p>
 
-                    <div className="password-box">
-                        <div className="password" id="password">
-                            {password}
-                        </div>
-
-                        <button className="btn icon-btn" onClick={generatePassword} aria-label="Regenerate password">
-                            <img src="/gassets/refresh.png" alt="Refresh Generate Password" />
-                        </button>
-
-                        <button className="btn copy-btn" onClick={copyPassword}>
-                            Copy
-                        </button>
-                    </div>
-
-                    <div className="row">
-                        <p>
-                            Password Length: <strong id="lengthValue">{length}</strong>
-                        </p>
-
-                        <br />
-
-                        <div className="range-box">
-                            <button onClick={() => changeLength(-1)}>−</button>
-
-                            <input
-                                className="slider"
-                                type="range"
-                                min="6"
-                                max="64"
-                                value={length}
-                                onChange={(e) => setLength(Number(e.target.value))}
-                            />
-
-                            <button onClick={() => changeLength(1)}>+</button>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <p>Characters Used:</p>
-
-                        <br />
-
-                        <div className="options">
-                            <label>
-                                <input
-                                    className="checkbox"
-                                    type="checkbox"
-                                    checked={upper}
-                                    onChange={() => handleCheckboxChange(setUpper, upper)}
-                                />
-                                ABC
-                            </label>
-
-                            <label>
-                                <input
-                                    className="checkbox"
-                                    type="checkbox"
-                                    checked={lower}
-                                    onChange={() => handleCheckboxChange(setLower, lower)}
-                                />
-                                abc
-                            </label>
-
-                            <label>
-                                <input
-                                    className="checkbox"
-                                    type="checkbox"
-                                    checked={numbers}
-                                    onChange={() => handleCheckboxChange(setNumbers, numbers)}
-                                />
-                                123
-                            </label>
-
-                            <label>
-                                <input
-                                    className="checkbox"
-                                    type="checkbox"
-                                    checked={symbols}
-                                    onChange={() => handleCheckboxChange(setSymbols, symbols)}
-                                />
-                                #$&amp;
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className="strength" id="strength" style={{ background: strength.color }}>
-                        {strength.label}
-                    </div>
-                </div>
-
-                <div id="toast" className={toastVisible ? "show" : ""}>
-                    🎉 Password copied successfully!
-                </div>
+          <div className="password-box">
+            <div className="password" id="password">
+              {password}
             </div>
-        </>
-    );
+
+            <button className="btn icon-btn" onClick={generatePassword} aria-label="Regenerate password">
+              <img src="/gassets/refresh.png" alt="Refresh Generate Password" />
+            </button>
+
+            <button className="btn copy-btn" onClick={copyPassword}>
+              Copy
+            </button>
+          </div>
+
+          <div className="row">
+            <p>
+              Password Length: <strong id="lengthValue">{length}</strong>
+            </p>
+
+            <br />
+
+            <div className="range-box">
+              <button onClick={() => changeLength(-1)}>−</button>
+
+              <input
+                className="slider"
+                type="range"
+                min="6"
+                max="64"
+                value={length}
+                onChange={(e) => setLength(Number(e.target.value))}
+              />
+
+              <button onClick={() => changeLength(1)}>+</button>
+            </div>
+          </div>
+
+          <div className="row">
+            <p>Characters Used:</p>
+
+            <br />
+
+            <div className="options">
+              <label>
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  checked={upper}
+                  onChange={() => handleCheckboxChange(setUpper, upper)}
+                />
+                ABC
+              </label>
+
+              <label>
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  checked={lower}
+                  onChange={() => handleCheckboxChange(setLower, lower)}
+                />
+                abc
+              </label>
+
+              <label>
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  checked={numbers}
+                  onChange={() => handleCheckboxChange(setNumbers, numbers)}
+                />
+                123
+              </label>
+
+              <label>
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  checked={symbols}
+                  onChange={() => handleCheckboxChange(setSymbols, symbols)}
+                />
+                #$&amp;
+              </label>
+            </div>
+          </div>
+
+          <div className="strength" id="strength" style={{ background: strength.color }}>
+            {strength.label}
+          </div>
+        </div>
+
+        <div id="toast" className={toastVisible ? "show" : ""}>
+          🎉 Password copied successfully!
+        </div>
+      </div>
+    </>
+  );
 }

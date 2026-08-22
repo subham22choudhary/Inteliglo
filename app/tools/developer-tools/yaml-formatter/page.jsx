@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-// Lightweight YAML parser: handles nested mappings, sequences, and scalars
-// (strings, numbers, booleans, null) with block-style indentation.
-// Does not support flow style ({}/[]), anchors, or multi-line scalars.
+export const meta = {
+    tags: ["Developer Tools"],
+};
 
 function stripComment(line) {
     let inSingle = false;

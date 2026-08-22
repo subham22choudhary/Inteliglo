@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export const meta = {
+    tags: ["Developer Tools"],
+};
+
 export default function Page() {
     const [mode, setMode] = useState("encode"); // encode | decode
     const [component, setComponent] = useState(true); // true = encodeURIComponent, false = encodeURI

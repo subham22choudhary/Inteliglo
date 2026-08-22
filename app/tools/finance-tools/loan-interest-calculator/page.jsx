@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateFlatRate(principal, annualRate, months) {
     const years = months / 12;
     const totalInterest = (principal * annualRate * years) / 100;

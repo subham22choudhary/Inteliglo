@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["LOANS & EMIs"],
+};
+
 function calculateReducingBalance(principal, annualRate, months) {
     const monthlyRate = annualRate / 12 / 100;
     const emi =

@@ -2,6 +2,10 @@
 
 import { useState, useMemo } from "react";
 
+export const meta = {
+    tags: ["INVESTMENT & RETURNS"],
+};
+
 function calculateSIP(monthlyInvestment, annualRate, years) {
     const months = Math.max(1, Math.round(years * 12) || 1);
     const monthlyRate = annualRate / 12 / 100;
