@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 
 export const meta = {
-    tags: ["LOANS & EMIS"],
+    tags: ["LOANS & EMIs"],
 };
 
 function calculateCreditCardEMI(outstandingAmount, monthlyRate, months) {
