@@ -7,7 +7,7 @@ function pad(n) {
 }
 
 export const meta = {
-    tags: ["Developer Tools"],
+    tags: ["DEVELOPER TOOLS"],
 };
 
 function toLocalInputValue(date) {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export const meta = {
-    tags: ["Developer Tools"],
+    tags: ["DEVELOPER TOOLS"],
 };
 
 const VOID_ELEMENTS = new Set([

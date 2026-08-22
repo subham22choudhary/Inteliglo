@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 export const meta = {
-  tags: ["Developer Tools"],
+    tags: ["DEVELOPER TOOLS"],
 };
 
 const CHARSETS = {

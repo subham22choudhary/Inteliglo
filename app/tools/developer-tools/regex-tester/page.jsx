@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 
 export const meta = {
-    tags: ["Developer Tools"],
+    tags: ["DEVELOPER TOOLS"],
 };
 
 const FLAG_OPTIONS = [

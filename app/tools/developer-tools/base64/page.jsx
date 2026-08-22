@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export const meta = {
-    tags: ["Developer Tools"],
+    tags: ["DEVELOPER TOOLS"],
 };
 
 /** Encode a UTF-8 string to Base64 (handles emoji/non-Latin chars safely). */
