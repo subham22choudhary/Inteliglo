@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 
 export const meta = {
-    tags: ["LOANS & EMI"],
+    tags: ["LOANS & EMIs"],
 };
 
 function calculateEMI(principal, annualRate, months) {
