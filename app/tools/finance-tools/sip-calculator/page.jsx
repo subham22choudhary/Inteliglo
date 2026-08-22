@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 
 export const meta = {
-    tags: ["INVESTMENT & RETURNS"],
+    tags: ["MUTUAL FUNDS"],
 };
 
 function calculateSIP(monthlyInvestment, annualRate, years) {

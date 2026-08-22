@@ -1,0 +1,93 @@
+"use client";
+
+import { useState, useMemo } from "react";
+
+export const meta = {
+    tags: ["BANK & POST OFFICE"],
+};
+
+function calculateKVP(principal, annualRate) {
+    // KVP doubles money — derive years-to-double from rate (compounded annually)
+    const yearsToDouble = Math.log(2) / Math.log(1 + annualRate / 100);
+    const maturityValue = principal * 2;
+    return { yearsToDouble, maturityValue };
+}
+
+function formatCurrency(num) {
+    return num.toLocaleString("en-IN", { maximumFractionDigits: 0, minimumFractionDigits: 0 });
+}
+
+const LIMITS = {
+    principal: { min: 1000, max: 5000000, step: 1000 },
+    rate: { min: 5, max: 10, step: 0.1 },
+};
+
+export default function Page() {
+    const [principal, setPrincipal] = useState(100000);
+    const [annualRate, setAnnualRate] = useState(7.5);
+
+    const { yearsToDouble, maturityValue } = useMemo(() => {
+        const p = Number(principal) || 0;
+        const r = Number(annualRate) || 0.1;
+        return calculateKVP(p, r);
+    }, [principal, annualRate]);
+
+    const years = Math.floor(yearsToDouble);
+    const months = Math.round((yearsToDouble - years) * 12);
+
+    return (
+        <div className="ig">
+            <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
+                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bank & Post Office</p>
+                <h1 style={{ textAlign: "center" }}>KVP (Kisan Vikas Patra) Calculator</h1>
+
+                <FieldWithSlider label="Investment Amount" prefix="₹" value={principal} onChange={setPrincipal} limits={LIMITS.principal} />
+                <FieldWithSlider label="Interest Rate (Annual)" suffix="%" value={annualRate} onChange={setAnnualRate} limits={LIMITS.rate} />
+
+                <div className="ig-category">
+                    <p className="ig-category-label">Results</p>
+                    <div className="ig-list">
+                        <div className="ig-item ig-result">Time to Double Investment: {years} years {months} months</div>
+                        <div className="ig-item ig-result ig-result-total">Maturity Value: ₹{formatCurrency(maturityValue)}</div>
+                    </div>
+                </div>
+
+                <p style={disclaimerStyle}>
+                    KVP guarantees doubling of investment over a fixed period set by the government
+                    (currently ~115 months), which may not exactly match the compounded-rate estimate
+                    above. Confirm the official maturity period at your post office.
+                </p>
+            </div>
+        </div>
+    );
+}
+
+function FieldWithSlider({ label, value, onChange, limits, prefix, suffix }) {
+    const { min, max, step } = limits;
+    const clamp = (v) => Math.min(max, Math.max(min, v));
+    const handleNumberChange = (e) => onChange(e.target.value === "" ? "" : Number(e.target.value));
+    const handleNumberBlur = () => onChange(clamp(Number(value) || min));
+    const handleSliderChange = (e) => onChange(Number(e.target.value));
+    const percent = ((clamp(Number(value) || min) - min) / (max - min)) * 100;
+
+    return (
+        <div className="ig-category">
+            <p className="ig-category-label">{label}</p>
+            <div className="ig-field">
+                {prefix && <span className="ig-field-prefix">{prefix}</span>}
+                <input className="ig-input" type="number" min={min} max={max} step={step} value={value} onChange={handleNumberChange} onBlur={handleNumberBlur} />
+                {suffix && <span className="ig-field-suffix">{suffix}</span>}
+            </div>
+            <input className="ig-slider" type="range" min={min} max={max} step={step} value={clamp(Number(value) || min)} onChange={handleSliderChange} style={{ "--ig-slider-percent": `${percent}%` }} />
+        </div>
+    );
+}
+
+const disclaimerStyle = {
+    fontFamily: "Helvetica, Arial, sans-serif",
+    fontSize: 11,
+    color: "#666",
+    lineHeight: 1.6,
+    marginTop: 32,
+    textAlign: "center",
+};
