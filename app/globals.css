@@ -132,6 +132,8 @@ h1 {
 
     box-sizing: border-box;
 
+    text-transform: uppercase;
+
 }
 
 .ig-item:hover {
@@ -648,7 +650,7 @@ h1 {
 
         padding: 11px 8px;
 
-        font-size: 11px;
+        font-size: 14px;
 
     }
 
