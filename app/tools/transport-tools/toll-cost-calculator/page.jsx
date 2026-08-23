@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRANSPORT"],
-};
 
 const VEHICLE_MULTIPLIER = {
     car: { label: "Car / Jeep / Van", multiplier: 1 },
@@ -46,7 +43,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Transport</p>
+                <ToolCategory category="Transport" />
                 <h1 style={{ textAlign: "center" }}>Toll Cost Estimator</h1>
 
                 <div className="ig-category">

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX", "GENERAL"],
-};
 
 function calculateSalary(ctc, basicPercent, hraPercent, employerPFPercent, otherDeductionsMonthly) {
     const annualCTC = ctc;
@@ -52,7 +49,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Salary</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Salary / CTC Calculator (In-Hand Breakup)</h1>
 
                 <FieldWithSlider label="Annual CTC" prefix="₹" value={ctc} onChange={setCtc} limits={LIMITS.ctc} />

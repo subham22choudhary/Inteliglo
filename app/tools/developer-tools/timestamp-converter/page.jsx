@@ -1,14 +1,11 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useEffect, useMemo } from "react";
 
 function pad(n) {
     return String(n).padStart(2, "0");
 }
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
 
 function toLocalInputValue(date) {
     return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(
@@ -123,7 +120,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>Timestamp Converter</h1>
 
                 {/* Live clock */}

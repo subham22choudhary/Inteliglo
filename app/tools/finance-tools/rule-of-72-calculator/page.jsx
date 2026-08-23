@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["GENERAL"],
-};
 
 function calculateRuleOf72(annualRate) {
     const yearsToDouble = 72 / annualRate;
@@ -27,7 +24,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>General</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Rule of 72 Calculator</h1>
 
                 <FieldWithSlider label="Expected Annual Return" suffix="%" value={annualRate} onChange={setAnnualRate} limits={LIMITS.rate} />

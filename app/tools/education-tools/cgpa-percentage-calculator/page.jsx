@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["EDUCATION"],
-};
 
 function convertCGPA(cgpa, multiplier) {
     const percentage = cgpa * multiplier;
@@ -29,7 +26,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Education</p>
+                <ToolCategory category="Education" />
                 <h1 style={{ textAlign: "center" }}>CGPA to Percentage Converter</h1>
 
                 <FieldWithSlider label="CGPA (out of 10)" value={cgpa} onChange={setCgpa} limits={LIMITS.cgpa} />

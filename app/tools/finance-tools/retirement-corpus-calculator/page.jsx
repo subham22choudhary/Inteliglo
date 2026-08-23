@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["RETIREMENT"],
-};
 
 function calculateRetirementCorpus(monthlyExpense, currentAge, retirementAge, lifeExpectancy, inflationRate, postRetirementReturn) {
     const yearsToRetirement = retirementAge - currentAge;
@@ -56,7 +53,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Retirement</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Retirement Corpus Calculator</h1>
 
                 <FieldWithSlider label="Current Monthly Expense" prefix="₹" value={monthlyExpense} onChange={setMonthlyExpense} limits={LIMITS.monthlyExpense} />

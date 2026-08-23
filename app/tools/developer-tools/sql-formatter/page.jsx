@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState } from "react";
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
 
 const KEYWORDS = [
     "SELECT", "FROM", "WHERE", "AND", "OR", "NOT", "IN", "EXISTS", "BETWEEN", "LIKE", "IS", "NULL",
@@ -221,7 +218,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 900, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>SQL Formatter</h1>
 
                 <div style={controlsStyle}>

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
 
 const STOP_WORDS = new Set([
     "a", "an", "the", "and", "or", "but", "is", "are", "was", "were", "in", "on",
@@ -78,7 +75,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Developer Tools</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>Slugify — URL Slug Generator</h1>
 
                 {/* INPUT — highlighted */}

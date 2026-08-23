@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
 
 const FLAG_OPTIONS = [
     { key: "g", label: "g — global" },
@@ -90,7 +87,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>Regex Tester</h1>
 
                 <div className="ig-category">

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["LOANS & EMIs"],
-};
 
 function calculateCreditCardEMI(outstandingAmount, monthlyRate, months) {
     const r = monthlyRate / 100;
@@ -42,7 +39,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Loans & EMIs</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Credit Card EMI / Interest Calculator</h1>
 
                 <FieldWithSlider label="Outstanding Amount" prefix="₹" value={outstandingAmount} onChange={setOutstandingAmount} limits={LIMITS.outstandingAmount} />

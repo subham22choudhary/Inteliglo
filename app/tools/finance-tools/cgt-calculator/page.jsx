@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX & GOVERNMENT CHARGES"],
-};
 
 function calculateCGT(purchasePrice, salePrice, holdingMonths, assetType) {
     const gain = salePrice - purchasePrice;
@@ -59,7 +56,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Tax</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Capital Gains Tax (CGT) Calculator</h1>
 
                 <div className="ig-category">

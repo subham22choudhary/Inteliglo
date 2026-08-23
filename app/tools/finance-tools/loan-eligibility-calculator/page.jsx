@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["LOANS & EMIs"],
-};
 
 function calculateEligibility(monthlyIncome, existingEMIs, foirPercent, annualRate, tenureMonths) {
     const maxAllowedEMI = Math.max(0, (monthlyIncome * foirPercent) / 100 - existingEMIs);
@@ -53,7 +50,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Loan Eligibility Calculator</h1>
 
                 <FieldWithSlider label="Net Monthly Income" prefix="₹" value={monthlyIncome} onChange={setMonthlyIncome} limits={LIMITS.income} />

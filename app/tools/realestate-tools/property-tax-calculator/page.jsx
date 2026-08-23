@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["REAL ESTATE", "TAX"],
-};
 
 function calculatePropertyTax(builtUpArea, ratePerSqFt, ageFactor, usageMultiplier, occupancyMultiplier) {
     const baseValue = builtUpArea * ratePerSqFt;
@@ -44,7 +41,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Real Estate</p>
+                <ToolCategory category="Real Estate" />
                 <h1 style={{ textAlign: "center" }}>Property Tax Calculator</h1>
 
                 <FieldWithSlider label="Built-up Area" suffix="sq. ft." value={builtUpArea} onChange={setBuiltUpArea} limits={LIMITS.builtUpArea} />

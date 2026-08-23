@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["EDUCATION"],
-};
 
 const COUNTRY_DATA = {
     usa: { label: "USA", tuitionUSD: 35000, livingUSD: 15000, currencyRate: 83 },
@@ -48,7 +45,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Education</p>
+                <ToolCategory category="Education" />
                 <h1 style={{ textAlign: "center" }}>Study Abroad Cost Calculator</h1>
 
                 <div className="ig-category">

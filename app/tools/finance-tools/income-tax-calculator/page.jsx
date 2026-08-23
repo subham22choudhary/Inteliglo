@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX & GOVERNMENT CHARGES"],
-};
 
 /* New Regime slabs (FY 2025-26 / AY 2026-27) */
 const NEW_REGIME_SLABS = [
@@ -100,7 +97,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Income Tax Calculator</h1>
 
                 {/* Regime tabs */}

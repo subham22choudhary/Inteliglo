@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["BANK & POST OFFICE"],
-};
 
 function calculateSCSS(principal, annualRate) {
     const quarterlyPayout = (principal * annualRate) / 100 / 4;
@@ -35,7 +32,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bank & Post Office</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>SCSS (Senior Citizens Savings Scheme) Calculator</h1>
 
                 <FieldWithSlider label="Deposit Amount" prefix="₹" value={principal} onChange={setPrincipal} limits={LIMITS.principal} />

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState } from "react";
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
 
 function stripComment(line) {
     let inSingle = false;
@@ -270,7 +267,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 900, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>YAML Formatter</h1>
                 <p style={noteStyle}>
                     Supports block-style mappings, sequences, and scalars. Flow style ({"{ }"}, [ ]),

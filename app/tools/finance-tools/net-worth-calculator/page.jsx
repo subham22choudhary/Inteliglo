@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["GENERAL"],
-};
 
 function formatCurrency(num) {
     return num.toLocaleString("en-IN", { maximumFractionDigits: 0, minimumFractionDigits: 0 });
@@ -34,7 +31,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>General</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Net Worth Calculator</h1>
 
                 <div className="ig-category">

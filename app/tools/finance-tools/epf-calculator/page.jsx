@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["RETIREMENT"],
-};
 
 function calculateEPF(basicSalary, employeeContributionPercent, employerContributionPercent, currentAge, retirementAge, annualIncrement, interestRate) {
     const monthlyRate = interestRate / 12 / 100;
@@ -67,7 +64,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Retirement</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>EPF (Employees' Provident Fund) Calculator</h1>
 
                 <FieldWithSlider label="Basic Salary + DA (Monthly)" prefix="₹" value={basicSalary} onChange={setBasicSalary} limits={LIMITS.basicSalary} />

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["BANK & POST OFFICE"],
-};
 
 function calculateRD(monthlyDeposit, annualRate, months) {
     const i = annualRate / 400; // quarterly rate
@@ -42,7 +39,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bank & Post Office</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>RD (Recurring Deposit) Calculator</h1>
 
                 <FieldWithSlider label="Monthly Deposit" prefix="₹" value={monthlyDeposit} onChange={setMonthlyDeposit} limits={LIMITS.monthlyDeposit} />

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["HEALTH"],
-};
 
 function calculateBodyFat(gender, heightCm, neckCm, waistCm, hipCm) {
     let bodyFatPercent;
@@ -58,7 +55,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Health</p>
+                <ToolCategory category="Health" />
                 <h1 style={{ textAlign: "center" }}>Body Fat % Calculator (US Navy Method)</h1>
 
                 <div className="ig-category">

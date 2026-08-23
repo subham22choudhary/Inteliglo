@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["REAL ESTATE"],
-};
 
 function calculateAreas(inputArea, inputType, loadingPercent) {
     const loading = loadingPercent / 100;
@@ -46,7 +43,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Real Estate</p>
+                <ToolCategory category="Real Estate" />
                 <h1 style={{ textAlign: "center" }}>Carpet Area vs Built-up Area Converter</h1>
 
                 <div className="ig-category">

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["MUTUAL FUNDS"],
-};
 
 function calculateLumpsum(principal, annualReturn, years) {
     const futureValue = principal * Math.pow(1 + annualReturn / 100, years);
@@ -37,7 +34,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Mutual Funds</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Lumpsum Investment Calculator</h1>
 
                 <FieldWithSlider label="Investment Amount" prefix="₹" value={principal} onChange={setPrincipal} limits={LIMITS.principal} />

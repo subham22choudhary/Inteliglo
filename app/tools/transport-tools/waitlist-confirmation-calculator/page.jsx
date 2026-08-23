@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRANSPORT"],
-};
 
 function calculateProbability(currentWLPosition, quotaType, daysBeforeJourney, trainPopularity) {
     // Heuristic model — not official IRCTC data, just a rough estimate based on common patterns
@@ -48,7 +45,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Transport</p>
+                <ToolCategory category="Transport" />
                 <h1 style={{ textAlign: "center" }}>Waiting List Confirmation Probability</h1>
 
                 <div className="ig-category">

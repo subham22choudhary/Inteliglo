@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["MUTUAL FUNDS"],
-};
 
 function calculateSIP(monthlyInvestment, annualRate, years) {
     const months = Math.max(1, Math.round(years * 12) || 1);
@@ -51,7 +48,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>SIP Calculator</h1>
 
                 <FieldWithSlider

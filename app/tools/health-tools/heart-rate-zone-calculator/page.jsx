@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["HEALTH"],
-};
 
 const ZONES = [
     { name: "Zone 1 — Warm Up", min: 0.5, max: 0.6, desc: "Very light, recovery" },
@@ -45,7 +42,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Health</p>
+                <ToolCategory category="Health" />
                 <h1 style={{ textAlign: "center" }}>Heart Rate Zone Calculator</h1>
 
                 <FieldWithSlider label="Age" suffix="years" value={age} onChange={setAge} limits={LIMITS.age} />

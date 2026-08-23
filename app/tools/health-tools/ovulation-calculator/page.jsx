@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["HEALTH"],
-};
 
 function calculateOvulation(lmpDateStr, cycleLength) {
     const lmpDate = new Date(lmpDateStr);
@@ -46,7 +43,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Health</p>
+                <ToolCategory category="Health" />
                 <h1 style={{ textAlign: "center" }}>Ovulation Calculator</h1>
 
                 <div className="ig-category">

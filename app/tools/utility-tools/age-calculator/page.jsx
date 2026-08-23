@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo, useRef, useEffect } from "react";
-
-export const meta = {
-    tags: ["UTILITY"],
-};
 
 function calculateAge(birthDateStr) {
     const birthDate = new Date(birthDateStr);
@@ -368,7 +365,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Utility" />
                 <h1 style={{ textAlign: "center" }}>Age & Date Difference Calculator</h1>
 
                 {/* MODE TOGGLE */}

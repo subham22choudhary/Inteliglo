@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["PERSONAL FINANCE"],
-};
 
 function getDTIBand(dtiPercent) {
     if (dtiPercent <= 20) return { label: "Excellent", color: "#4caf3d" };
@@ -62,7 +59,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Debt-to-Income Ratio Calculator</h1>
 
                 <FieldWithSlider

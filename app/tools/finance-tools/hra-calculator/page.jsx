@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX"],
-};
 
 function calculateHRA(basicSalary, hraReceived, rentPaid, isMetro) {
     const annualBasic = basicSalary * 12;
@@ -47,7 +44,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Tax</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>HRA (House Rent Allowance) Calculator</h1>
 
                 <div className="ig-category">

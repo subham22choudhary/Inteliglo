@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS", "UTILITY"],
-};
 
 function analyzeText(text) {
     const characters = text.length;
@@ -101,7 +98,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Developer Tools</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>Word Counter & Text Analyzer</h1>
 
                 {/* INPUT — highlighted */}

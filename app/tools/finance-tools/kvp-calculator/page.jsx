@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["BANK & POST OFFICE"],
-};
 
 function calculateKVP(principal, annualRate) {
     // KVP doubles money — derive years-to-double from rate (compounded annually)
@@ -38,7 +35,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bank & Post Office</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>KVP (Kisan Vikas Patra) Calculator</h1>
 
                 <FieldWithSlider label="Investment Amount" prefix="₹" value={principal} onChange={setPrincipal} limits={LIMITS.principal} />

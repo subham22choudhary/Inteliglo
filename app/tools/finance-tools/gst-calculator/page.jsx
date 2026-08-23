@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX & GOVERNMENT CHARGES"],
-};
 
 const GST_RATES = [
     { key: "5", label: "5%", rate: 5 },
@@ -49,7 +46,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>GST Calculator</h1>
 
                 <div className="ig-category">

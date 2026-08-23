@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["REAL ESTATE"],
-};
 
 function calculateRentalYield(propertyValue, monthlyRent, annualMaintenanceCost) {
     const annualRent = monthlyRent * 12;
@@ -40,7 +37,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Real Estate</p>
+                <ToolCategory category="Real Estate" />
                 <h1 style={{ textAlign: "center" }}>Rental Yield Calculator</h1>
 
                 <FieldWithSlider label="Property Value" prefix="₹" value={propertyValue} onChange={setPropertyValue} limits={LIMITS.propertyValue} />

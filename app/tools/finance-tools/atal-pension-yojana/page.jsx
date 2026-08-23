@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["RETIREMENT"],
-};
 
 // Approx APY contribution chart (age -> monthly contribution per ₹1000 pension)
 const APY_TABLE = {
@@ -59,7 +56,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Retirement</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>APY (Atal Pension Yojana) Calculator</h1>
 
                 <FieldWithSlider label="Current Age" suffix="years" value={age} onChange={setAge} limits={LIMITS.age} />

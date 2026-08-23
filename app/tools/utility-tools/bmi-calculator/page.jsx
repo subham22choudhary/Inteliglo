@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["UTILITY", "HEALTH"],
-};
 
 function calculateBMI(weightKg, heightCm) {
     const heightM = heightCm / 100;
@@ -40,7 +37,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Utility" />
                 <h1 style={{ textAlign: "center" }}>BMI Calculator</h1>
 
                 <FieldWithSlider label="Weight" suffix="kg" value={weightKg} onChange={setWeightKg} limits={LIMITS.weight} />

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRAVEL"],
-};
 
 // Approx excess baggage rates (₹ per kg) — domestic economy
 const AIRLINE_RATES = {
@@ -43,7 +40,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Travel</p>
+                <ToolCategory category="Air Travel" />
                 <h1 style={{ textAlign: "center" }}>Flight Baggage Fee Calculator</h1>
 
                 <div className="ig-category">

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["HEALTH"],
-};
 
 const GOALS = {
     maintain: { label: "Maintain Weight", proteinPercent: 30, carbPercent: 40, fatPercent: 30 },
@@ -41,7 +38,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Health</p>
+                <ToolCategory category="Health" />
                 <h1 style={{ textAlign: "center" }}>Macro Calculator</h1>
 
                 <div className="ig-category">

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX & GOVERNMENT CHARGES"],
-};
 
 function calculate54EC(capitalGain, investedAmount, interestRate) {
     const maxExemption = 5000000; // ₹50 lakh cap
@@ -43,7 +40,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bonds</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>54EC Bonds (Capital Gains Tax Exemption) Calculator</h1>
 
                 <FieldWithSlider label="Long-Term Capital Gain" prefix="₹" value={capitalGain} onChange={setCapitalGain} limits={LIMITS.capitalGain} />

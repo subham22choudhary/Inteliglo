@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["INSURANCE"],
-};
 
 function calculateHLI(annualIncome, existingLiabilities, dependentYears, monthlyExpenses, existingCover) {
     const incomeReplacementCover = annualIncome * 15; // 15x annual income (thumb rule)
@@ -46,7 +43,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Insurance</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Life Insurance Cover Calculator</h1>
 
                 <FieldWithSlider label="Annual Income" prefix="₹" value={annualIncome} onChange={setAnnualIncome} limits={LIMITS.annualIncome} />

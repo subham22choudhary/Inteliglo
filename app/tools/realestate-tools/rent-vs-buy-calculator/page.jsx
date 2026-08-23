@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["REAL ESTATE"],
-};
 
 function calculateRentVsBuy(propertyPrice, downPaymentPercent, loanRate, loanTenure, monthlyRent, rentIncreasePercent, propertyAppreciationPercent, investmentReturnPercent, years) {
     const downPayment = (propertyPrice * downPaymentPercent) / 100;
@@ -89,7 +86,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Real Estate</p>
+                <ToolCategory category="Real Estate" />
                 <h1 style={{ textAlign: "center" }}>Rent vs Buy Calculator</h1>
 
                 <FieldWithSlider label="Property Price" prefix="₹" value={propertyPrice} onChange={setPropertyPrice} limits={LIMITS.propertyPrice} />

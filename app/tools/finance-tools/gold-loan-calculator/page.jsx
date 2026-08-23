@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["LOANS & EMIs"],
-};
 
 const LTV_OPTIONS = [
     { key: "60", label: "60%" },
@@ -68,7 +65,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Gold Loan Calculator</h1>
 
                 <FieldWithSlider label="Gold Weight" suffix="grams" value={goldWeightGrams} onChange={setGoldWeightGrams} limits={LIMITS.goldWeight} />

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["MUTUAL FUNDS"],
-};
 
 function calculateStepUpSIP(initialMonthlySIP, annualStepUpPercent, expectedReturn, years) {
     const monthlyRate = expectedReturn / 12 / 100;
@@ -53,7 +50,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Mutual Funds</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Step-up SIP Calculator</h1>
 
                 <FieldWithSlider label="Initial Monthly SIP" prefix="₹" value={initialMonthlySIP} onChange={setInitialMonthlySIP} limits={LIMITS.initialSIP} />

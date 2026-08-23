@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["BONDS"],
-};
 
 function calculateSGB(investmentAmount, currentGoldPrice, expectedGoldPrice, years, interestRate) {
     const units = investmentAmount / currentGoldPrice; // grams
@@ -47,7 +44,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bonds</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>SGB (Sovereign Gold Bond) Calculator</h1>
 
                 <FieldWithSlider label="Investment Amount" prefix="₹" value={investmentAmount} onChange={setInvestmentAmount} limits={LIMITS.investmentAmount} />

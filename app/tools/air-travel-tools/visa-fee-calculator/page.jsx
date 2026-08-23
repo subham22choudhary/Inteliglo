@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRAVEL"],
-};
 
 // Approximate visa fees for Indian passport holders (in INR) — reference only, changes frequently
 const COUNTRY_VISA_FEES = {
@@ -45,7 +42,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Travel</p>
+                <ToolCategory category="Air Travel" />
                 <h1 style={{ textAlign: "center" }}>Visa Fee Calculator (for Indian Passport Holders)</h1>
 
                 <div className="ig-category">

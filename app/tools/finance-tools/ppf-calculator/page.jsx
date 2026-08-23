@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["INVESTMENT & RETURNS"],
-};
 
 const PPF_RATE = 7.1; // current PPF interest rate (Government of India, revised quarterly)
 
@@ -50,7 +47,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>PPF Calculator</h1>
 
                 <FieldWithSlider

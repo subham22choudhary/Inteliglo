@@ -2,10 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
-
 const CHARSETS = {
   upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lower: "abcdefghijklmnopqrstuvwxyz",

@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX & GOVERNMENT CHARGES"],
-};
 
 function calculateELSS(monthlyInvestment, expectedReturn, years, taxSlabPercent) {
     const monthlyRate = expectedReturn / 12 / 100;
@@ -50,7 +47,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Mutual Funds</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>ELSS (Tax-Saving Mutual Fund) Calculator</h1>
 
                 <FieldWithSlider label="Monthly Investment" prefix="₹" value={monthlyInvestment} onChange={setMonthlyInvestment} limits={LIMITS.monthlyInvestment} />

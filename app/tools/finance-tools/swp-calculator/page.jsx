@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["MUTUAL FUNDS"],
-};
 
 function calculateSWP(totalInvestment, monthlyWithdrawal, annualReturn, years) {
     const monthlyRate = annualReturn / 12 / 100;
@@ -53,7 +50,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Mutual Funds</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>SWP (Systematic Withdrawal Plan) Calculator</h1>
 
                 <FieldWithSlider label="Total Investment" prefix="₹" value={totalInvestment} onChange={setTotalInvestment} limits={LIMITS.totalInvestment} />

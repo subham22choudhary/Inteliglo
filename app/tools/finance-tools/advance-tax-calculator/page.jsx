@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX"],
-};
 
 const INSTALLMENTS = [
     { label: "By 15 June", cumulativePercent: 15, dueDate: "15 June" },
@@ -50,7 +47,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Tax</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>Advance Tax Calculator</h1>
 
                 <FieldWithSlider label="Estimated Total Tax Liability" prefix="₹" value={estimatedTaxLiability} onChange={setEstimatedTaxLiability} limits={LIMITS.taxLiability} />

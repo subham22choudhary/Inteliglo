@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRANSPORT"],
-};
 
 // Approx per-km base fares by class (₹) — Mail/Express, simplified
 const CLASS_RATES = {
@@ -46,7 +43,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Transport</p>
+                <ToolCategory category="Transport" />
                 <h1 style={{ textAlign: "center" }}>Train Fare Calculator</h1>
 
                 <div className="ig-category">

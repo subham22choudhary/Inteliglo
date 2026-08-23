@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["EDUCATION"],
-};
 
 function calculateComparison(totalCost, scholarshipAmount, loanRate, loanTenureYears) {
     const loanAmount = Math.max(totalCost - scholarshipAmount, 0);
@@ -53,7 +50,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Education</p>
+                <ToolCategory category="Education" />
                 <h1 style={{ textAlign: "center" }}>Education Loan vs Scholarship Calculator</h1>
 
                 <FieldWithSlider label="Total Course Cost" prefix="₹" value={totalCost} onChange={setTotalCost} limits={LIMITS.totalCost} />

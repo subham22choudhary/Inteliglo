@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["BANK & POST OFFICE"],
-};
 
 function calculateSSY(annualDeposit, girlAge, annualRate) {
     const depositYears = 15;
@@ -51,7 +48,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Bank & Post Office</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>SSY (Sukanya Samriddhi Yojana) Calculator</h1>
 
                 <FieldWithSlider label="Annual Deposit" prefix="₹" value={annualDeposit} onChange={setAnnualDeposit} limits={LIMITS.annualDeposit} />

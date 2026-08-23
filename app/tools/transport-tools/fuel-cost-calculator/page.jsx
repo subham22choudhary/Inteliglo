@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRANSPORT"],
-};
 
 function calculateFuelCost(distanceKm, mileageKmPerLitre, fuelPricePerLitre) {
     const litresRequired = distanceKm / mileageKmPerLitre;
@@ -39,7 +36,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Transport</p>
+                <ToolCategory category="Transport" />
                 <h1 style={{ textAlign: "center" }}>Fuel Cost Calculator</h1>
 
                 <FieldWithSlider label="Trip Distance" suffix="km" value={distanceKm} onChange={setDistanceKm} limits={LIMITS.distanceKm} />

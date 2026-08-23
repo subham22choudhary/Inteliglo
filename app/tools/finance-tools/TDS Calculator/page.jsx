@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TAX"],
-};
 
 const TDS_RATES = {
     salary: { label: "Salary", rate: null, threshold: 0, note: "As per applicable income slab" },
@@ -47,7 +44,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Tax</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>TDS Calculator</h1>
 
                 <div className="ig-category">

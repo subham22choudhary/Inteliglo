@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState } from "react";
-
-export const meta = {
-    tags: ["DEVELOPER TOOLS"],
-};
 
 export default function Page() {
     const [mode, setMode] = useState("encode"); // encode | decode
@@ -79,7 +76,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Utility</p>
+                <ToolCategory category="Developer" />
                 <h1 style={{ textAlign: "center" }}>URL Encoder / Decoder</h1>
 
                 {/* Mode tabs */}

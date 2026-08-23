@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["TRAVEL"],
-};
 
 function calculateLayover(arrivalTime, departureTime) {
     const [ah, am] = arrivalTime.split(":").map(Number);
@@ -42,7 +39,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Travel</p>
+                <ToolCategory category="Air Travel" />
                 <h1 style={{ textAlign: "center" }}>Layover Time Calculator</h1>
 
                 <div className="ig-category">

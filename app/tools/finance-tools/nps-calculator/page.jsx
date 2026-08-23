@@ -1,10 +1,7 @@
 "use client";
 
+import ToolCategory from "@/app/components/seo/ToolCategory";
 import { useState, useMemo } from "react";
-
-export const meta = {
-    tags: ["RETIREMENT"],
-};
 
 function calculateNPS(monthlyContribution, currentAge, retirementAge, expectedReturn, annuityPercent, annuityRate) {
     const months = (retirementAge - currentAge) * 12;
@@ -57,7 +54,7 @@ export default function Page() {
     return (
         <div className="ig">
             <div className="ig-inner" style={{ maxWidth: 820, textAlign: "left" }}>
-                <p className="ig-eyebrow" style={{ textAlign: "center" }}>Retirement</p>
+                <ToolCategory category="Finance" />
                 <h1 style={{ textAlign: "center" }}>NPS (National Pension System) Calculator</h1>
 
                 <FieldWithSlider label="Monthly Contribution" prefix="₹" value={monthlyContribution} onChange={setMonthlyContribution} limits={LIMITS.monthlyContribution} />
