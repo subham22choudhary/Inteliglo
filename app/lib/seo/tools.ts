@@ -951,4 +951,25 @@ export const toolSEO = {
     applicationCategory: "UtilityApplication",
     path: "/tools/utility-tools/whatsapp-link-generator",
   },
+  "html-css-js-formatter": {
+    name: "HTML CSS JS Formatter",
+    title: "HTML CSS JS Formatter - Beautify Code Online | Inteliglo",
+    description:
+      "Format and beautify HTML, CSS, and JavaScript code online. Free developer tool with customizable indentation and instant formatting.",
+    keywords: [
+      "html formatter",
+      "html beautifier",
+      "css formatter",
+      "css beautifier",
+      "javascript formatter",
+      "javascript beautifier",
+      "js formatter",
+      "html css js formatter",
+      "code formatter online",
+      "online code beautifier",
+    ],
+    category: "Developer Tools",
+    applicationCategory: "DeveloperApplication",
+    path: "/tools/developer-tools/html-css-js-formatter",
+  },
 } as const;
