@@ -935,4 +935,20 @@ export const toolSEO = {
     applicationCategory: "UtilityApplication",
     path: "/tools/utility-tools/electricity-bill-calculator",
   },
+  "whatsapp-link-generator": {
+    name: "WhatsApp Number Link Generator",
+    title: "WhatsApp Link Generator - Create wa.me Chat Links | Inteliglo",
+    description:
+      "Generate a direct WhatsApp chat link (wa.me) for any phone number with an optional prefilled message. Free, fast, and works without saving the contact.",
+    keywords: [
+      "whatsapp link generator",
+      "wa.me link generator",
+      "whatsapp click to chat",
+      "create whatsapp link",
+      "whatsapp chat link without saving number",
+    ],
+    category: "Utility Tools",
+    applicationCategory: "UtilityApplication",
+    path: "/tools/utility-tools/whatsapp-link-generator",
+  },
 } as const;
